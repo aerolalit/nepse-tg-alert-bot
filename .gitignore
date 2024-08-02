@@ -1,0 +1,13 @@
+node_modules
+dist
+.env
+src/modules/.DS_Store
+dev-notes.txt
+__azurite_db_blob__.json
+__azurite_db_blob_extent__.json
+__blobstorage__/
+.storage.json 
+
+.env.local
+
+.DS_Store

@@ -1,0 +1,5 @@
+{
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+  "appService.defaultWebAppToDeploy": "/subscriptions/2a834a92-e99d-46aa-9bc7-bba34bfb09ba/resourceGroups/RG-IND-WW-DEV-KJR/providers/Microsoft.Web/sites/WAS-IND-WW-DEV-KJR",
+  "appService.deploySubpath": "."
+}

@@ -1,0 +1,96 @@
+{
+  "name": "nepse-telegram-alert-bot",
+  "version": "0.0.1",
+  "description": "",
+  "author": "aerolalit@gmail.com",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "node dist/src/main.js",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "db:migration:create": "./node_modules/typeorm/cli.js migration:create",
+    "db:migration:show": "./node_modules/typeorm/cli.js migration:show -d dist/data-source.js",
+    "db:migration:run": "./node_modules/typeorm/cli.js migration:run -d dist/data-source.js",
+    "db:migration:revert": "./node_modules/typeorm/cli.js migration:revert -d dist/data-source.js",
+    "db:drop": "./node_modules/typeorm/cli.js schema:drop -d dist/data-source.js",
+    "db:reset": "npm run db:drop && npm run db:migration:run",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@mtproto/core": "^6.3.0",
+    "@nestjs/common": "^9.4.3",
+    "@nestjs/config": "^2.3.1",
+    "@nestjs/core": "^9.4.0",
+    "@nestjs/platform-express": "^9.4.3",
+    "@nestjs/schedule": "^4.1.0",
+    "@nestjs/typeorm": "^9.0.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "config": "^3.3.9",
+    "dotenv": "^16.0.3",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
+    "parse-duration": "^1.1.0",
+    "pg": "^8.10.0",
+    "rate-limiter-flexible": "^3.0.0",
+    "redis": "^4.6.6",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.8.0",
+    "swagger-ui-express": "^4.6.2",
+    "typeorm": "^0.3.15"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.4.2",
+    "@nestjs/schematics": "^9.1.0",
+    "@nestjs/testing": "^9.4.0",
+    "@types/estree": "^1.0.0",
+    "@types/express": "^4.17.8",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^18.17.1",
+    "@types/supertest": "^2.0.10",
+    "@types/uuid": "^9.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "supertest": "^6.0.0",
+    "ts-loader": "^8.0.8",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^5.0.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "engines": {
+    "node": "18.17.1"
+  }
+}
