@@ -1,4 +1,4 @@
-import { EnvironmentInterface, EnvironmentNameEnum } from './interfaces/Environment.config.interface';
+import { EnvironmentInterface, EnvironmentNameEnum } from './interfaces/Environment.interface';
 
 const config: EnvironmentInterface = {
   env: EnvironmentNameEnum.LOCAL,
@@ -18,5 +18,8 @@ const config: EnvironmentInterface = {
     appId: process.env.USER_BOT_APP_ID || '25663791',
     apiHash: process.env.USER_BOT_API_HASH || '8fad946a58ad5adc64fc7b6939ac6b78',
   },
-};
+  tgBotConfig: {
+    token: process.env.TELEGRAM_BOT_TOKEN || '',
+  }
+}
 export default config;

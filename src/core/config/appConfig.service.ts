@@ -1,12 +1,12 @@
-import { EnvironmentNameEnum } from './../../../config/interfaces/Environment.config.interface';
+import { EnvironmentNameEnum } from '../../../config/interfaces/Environment.interface';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { DbConfigInterface } from '../../../config/interfaces/db-config.interface';
-import { AzureBlobConfigInterface } from 'config/interfaces/AzureBlobConfig.interface';
+import { TgBotConfigInterface } from 'config/interfaces/TgBotConfig.interface';
 
 @Injectable()
 export class AppConfigService {
-  constructor(private readonly configService: ConfigService) {}
+  public constructor(private readonly configService: ConfigService) {}
 
   public get env(): EnvironmentNameEnum {
     return this.configService.getOrThrow('env');
@@ -28,7 +28,7 @@ export class AppConfigService {
     return this.configService.getOrThrow('dbConfig');
   }
 
-  public get azureBlobConfig(): AzureBlobConfigInterface {
-    return this.configService.getOrThrow('azureBlobConfig');
+  public get telegramBotConfig(): TgBotConfigInterface {
+    return this.configService.getOrThrow('tgBotConfig');
   }
 }

@@ -1,8 +1,7 @@
 import { Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
-
-@Entity('StockPrice')
-export class StockPrice {
+@Entity('TickerPrice')
+export class TickerPrice {
   @PrimaryColumn('text')
   public ticker: string;
 
@@ -17,10 +16,4 @@ export class StockPrice {
 
   @UpdateDateColumn()
   public updatedAt: Date;
-
-  constructor(data: Partial<StockPrice>) {
-    Object.assign(this, data);
-  }
-
 }
-

@@ -6,8 +6,11 @@ import { ConfigModule } from '@nestjs/config';
 import cfg from '../config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserBotModule } from './modules/user-bot/UserBot.module';
-import { StockPriceModule } from './modules/stock-price/StockPrice.module';
+import { TickerPriceModule } from './modules/stocks/TickerPrice.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { PriceFetchCron } from './modules/cron/FetchPrice.cron';
+import { TgBotModule } from './modules/tg-bot/TgBot.module';
+import { NotificationLogModule } from './modules/notification-log/Nofication.module';
 
 @Module({
   imports: [
@@ -17,20 +20,22 @@ import { ScheduleModule } from '@nestjs/schedule';
       envFilePath: [`.env`],
     }),
     TypeOrmModule.forRootAsync({
-      useFactory: async (appConfig: AppConfigService) =>( {
-          ...appConfig.dbConfig,
-          entities: [__dirname + '/**/' + '*.entity.{ts,js}'],
-          cache: false,
-          autoLoadEntities: true,
-        }),
+      useFactory: async (appConfig: AppConfigService) => ({
+        ...appConfig.dbConfig,
+        entities: [__dirname + '/**/' + '*.entity.{ts,js}'],
+        cache: false,
+        autoLoadEntities: true,
+      }),
       inject: [AppConfigService],
       imports: [CoreModule],
     }),
     ScheduleModule.forRoot(),
     UserBotModule,
-    StockPriceModule,
+    TickerPriceModule,
     CoreModule,
+    TgBotModule,
+    NotificationLogModule,
   ],
-  providers: [],
+  providers: [PriceFetchCron],
 })
 export class AppModule {}

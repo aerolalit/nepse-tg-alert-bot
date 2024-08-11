@@ -11,3 +11,5 @@ __blobstorage__/
 .env.local
 
 .DS_Store
+
+.env.prd

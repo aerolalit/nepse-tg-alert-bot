@@ -1,6 +1,6 @@
 import { DbConfigInterface } from './db-config.interface';
-import { AzureBlobConfigInterface } from './AzureBlobConfig.interface';
 import { UserBotConfigInterface } from './UserBotConfig.interface';
+import { TgBotConfigInterface } from './TgBotConfig.interface';
 
 export enum EnvironmentNameEnum {
   LOCAL = 'local',
@@ -14,5 +14,5 @@ export interface EnvironmentInterface {
   serverPort: number;
   dbConfig: DbConfigInterface;
   userBotConfig: UserBotConfigInterface;
-  azureBlobConfig?: AzureBlobConfigInterface;
+  tgBotConfig: TgBotConfigInterface;
 }

@@ -1,15 +1,26 @@
 import { LocalStorageService } from '../cache-stroage/LocalStorage.service';
-
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const MTProto = require('@mtproto/core');
 import * as moment from 'moment';
 import 'moment-timezone';
 import * as dotenv from 'dotenv';
+import { Logger } from '@nestjs/common';
 
 dotenv.config();
 interface StockData {
   ticker: string;
   ltp: number;
   priceTime: Date;
+}
+interface Update {
+  updates?: Array<any>;
+}
+
+interface Message {
+  peer_id: {
+    user_id: number;
+  };
+  [key: string]: any;
 }
 
 interface CodeSettings {
@@ -40,10 +51,11 @@ interface GetMessageHistoryResult {
 }
 
 export class UserBotService {
+  private readonly logger = new Logger(UserBotService.name);
   private mtproto: typeof MTProto;
   private phoneNumber: string;
 
-  constructor() {
+  public constructor() {
     this.mtproto = new MTProto({
       api_id: process.env.USER_BOT_API_ID,
       api_hash: process.env.USER_BOT_API_HASH,
@@ -54,7 +66,7 @@ export class UserBotService {
     this.phoneNumber = process.env.USER_BOT_PHONE_NUMBER as string;
   }
 
-  async sendCode(): Promise<SendCodeResult | undefined> {
+  public async sendCode(): Promise<SendCodeResult | undefined> {
     try {
       const result: SendCodeResult = await this.mtproto.call('auth.sendCode', {
         phone_number: this.phoneNumber,
@@ -65,11 +77,11 @@ export class UserBotService {
 
       return result;
     } catch (error) {
-      console.log('Error sending code:', error);
+      this.logger.error('Error sending code:', error);
     }
   }
 
-  async signIn(phoneCodeHash: string, code: string): Promise<SignInResult | undefined> {
+  public async signIn(phoneCodeHash: string, code: string): Promise<SignInResult | undefined> {
     try {
       const result: SignInResult = await this.mtproto.call('auth.signIn', {
         phone_number: this.phoneNumber,
@@ -79,11 +91,11 @@ export class UserBotService {
 
       return result;
     } catch (error) {
-      console.log('Error signing in:', error);
+      this.logger.error('Error signing in:', error);
     }
   }
 
-  async sendMessage(username: string, message: string): Promise<SendMessageResult | undefined> {
+  public async sendMessage(username: string, message: string): Promise<SendMessageResult | undefined> {
     try {
       const { users }: ResolveUsernameResult = await this.mtproto.call('contacts.resolveUsername', {
         username,
@@ -100,10 +112,10 @@ export class UserBotService {
         message,
         random_id: Math.floor(Math.random() * 0xffffff),
       });
-
+      this.logger.log(`Sent message to ${username}: ${message}`);
       return result;
     } catch (error) {
-      console.log('Error sending message:', error);
+      this.logger.error('Error sending message:', error);
     }
   }
 
@@ -142,24 +154,53 @@ export class UserBotService {
     }
   }
 
-  async extractStockData(): Promise<StockData[]> {
-    const messageHistory = await this.getMessageHistory(20);
+  public async subscribeToNewMessages(username: string, callback: (message: Message) => void): Promise<void> {
+    try {
+      await this.mtproto.call('contacts.resolveUsername', {
+        username,
+      });
+
+      this.mtproto.updates.on('updates', (update: Update) => {
+        if (update.updates) {
+          update.updates.forEach((u: any) => {
+            if (u._ === 'updateNewMessage') {
+              callback(u.message.message as Message);
+            }
+          });
+        }
+      });
+
+      const a = await this.mtproto.call('updates.getState');
+      this.logger.log('Subscribed to new messages', a);
+    } catch (error) {
+      this.logger.error('Error subscribing to new messages:', error);
+    }
+  }
+
+  public async fetchAndExtractStockData(tickerCount: number): Promise<StockData[]> {
+    const numberOfMessages = Math.ceil((tickerCount / 10) * 2);
+    const messageHistory = await this.getMessageHistory(numberOfMessages);
     if (!messageHistory) {
       return [];
     }
-  
+
     const stockDataMap = new Map<string, StockData>();
     const regex = /(\w+):\s*LTP:\s*([\d.]+),\s*Change:\s*([-\d.]+)\s*\(([-\d.]+%)\)(🔴|🟢)/g;
-  
+
     for (const message of messageHistory.messages) {
       const text = message.message;
       const timestampMatch = text.match(/As of: (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [APM]{2})/);
-      const priceTimeNPT = timestampMatch ? moment.tz(timestampMatch[1], 'YYYY-MM-DD hh:mm:ss A', 'Asia/Kathmandu') : null;
-      const priceTime = priceTimeNPT ? priceTimeNPT.utc().toDate() : new Date();
-  
+      const priceTime = timestampMatch
+        ? moment.tz(timestampMatch[1], 'YYYY-MM-DD hh:mm:ss A', 'Asia/Kathmandu').utc().toDate()
+        : null;
+      if (!priceTime) {
+        this.logger.error('Error parsing price time:', text);
+        continue;
+      }
       let match;
       while ((match = regex.exec(text)) !== null) {
-        const [_, ticker, ltp, change, changePercent, indicator] = match;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const [_, ticker, ltp] = match;
         const key = `${ticker}-${priceTime.getTime()}`;
         if (!stockDataMap.has(key)) {
           stockDataMap.set(key, {
@@ -170,7 +211,7 @@ export class UserBotService {
         }
       }
     }
-  
+
     return Array.from(stockDataMap.values());
   }
 }

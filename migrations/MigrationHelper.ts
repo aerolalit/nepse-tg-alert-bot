@@ -1,6 +1,6 @@
 const upperFirst = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 const lowerFirst = (text: string) => text.charAt(0).toLowerCase() + text.slice(1);
-const quote = (text: string) => `"${text}"`;
+export const quote = (text: string) => `"${text}"`;
 
 export const pkName = (tableName: string, columns: string[]) => {
   return quote(`PK_${upperFirst(tableName)}_${columns.map(lowerFirst).join('_')}`);

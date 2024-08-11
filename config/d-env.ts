@@ -1,4 +1,4 @@
-import { EnvironmentInterface, EnvironmentNameEnum } from './interfaces/Environment.config.interface';
+import { EnvironmentInterface, EnvironmentNameEnum } from './interfaces/Environment.interface';
 
 const config: EnvironmentInterface = {
   env: EnvironmentNameEnum.DEV,
@@ -18,10 +18,9 @@ const config: EnvironmentInterface = {
     appId: process.env.USER_BOT_APP_ID || '25663791',
     apiHash: process.env.USER_BOT_API_HASH || '8fad946a58ad5adc64fc7b6939ac6b78',
   },
-  azureBlobConfig: {
-    blobConnectionString:
-      process.env.AZURE_BLOB_CONNECTION_STRING ||
-      'DefaultEndpointsProtocol=https;AccountName=saindwwdevkjr;AccountKey=UbiJ6NterLc/ImVkvL6Bsx0Zx9dEz6o0XtsSpxDg89J17ikztGP96bCfkMGyzNe1AS/u1hLtKUzY+AStgKun3g==;EndpointSuffix=core.windows.net',
-  },
+  tgBotConfig: {
+    token: process.env.TELEGRAM_BOT_TOKEN || '',
+  }
+
 };
 export default config;
