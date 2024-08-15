@@ -15,6 +15,10 @@ export class TickerSubscriptionService {
     return this.tickerSubscriptionRepository.save(subscription);
   }
 
+  public async getSubscriptionsByTicker(ticker: string): Promise<TickerSubscription[]> {
+    return this.tickerSubscriptionRepository.find({ where: { ticker } });
+  }
+
   public async deleteSubscription(chatId: string, ticker: string): Promise<void> {
     await this.tickerSubscriptionRepository.delete({ ticker, chatId });
     await this.listSubscriptionsByChatId(chatId);

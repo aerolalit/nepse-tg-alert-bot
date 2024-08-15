@@ -1,5 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
-import { Ticker } from '../stocks/entities/Ticker.entity';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity('NotificationLog')
 export class NotificationLog {
@@ -17,7 +16,4 @@ export class NotificationLog {
 
   @UpdateDateColumn()
   public updatedAt: Date;
-
-  @ManyToOne(() => Ticker, (ticker) => ticker.tickerSubscriptions)
-  public tickerEntity: Ticker;
 }

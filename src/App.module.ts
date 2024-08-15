@@ -11,6 +11,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { PriceFetchCron } from './modules/cron/FetchPrice.cron';
 import { TgBotModule } from './modules/tg-bot/TgBot.module';
 import { NotificationLogModule } from './modules/notification-log/Nofication.module';
+import { CronModule } from './modules/cron/Cron.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { NotificationLogModule } from './modules/notification-log/Nofication.mod
     CoreModule,
     TgBotModule,
     NotificationLogModule,
+    CronModule,
   ],
   providers: [PriceFetchCron],
 })

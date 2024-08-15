@@ -1,9 +1,10 @@
-import { Between, Repository } from 'typeorm';
+import { NotificationLogService } from './../notification-log/NotificationLog.service';
 import { TickerPrice } from '../stocks/entities/TickerPrice.entity';
 import { Injectable } from '@nestjs/common';
-import { TickerSubscription } from '../stocks/entities/TickerSubscription.entity';
 import { NotificationLog } from '../notification-log/NotificationLog.entity';
 import { TgBotService } from '../tg-bot/TgBot.service';
+import { TickerPriceService } from '../stocks/services/TtockPrice.service';
+import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 
 @Injectable()
 export abstract class BasePriceAlertService {
@@ -15,10 +16,16 @@ export abstract class BasePriceAlertService {
   protected abstract readonly prevPriceLookupWindowInMinutes: number;
   private readonly currentPriceLookupWindowInMinutes = 2;
 
+  protected abstract getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string;
+
+  protected get currentDate(): Date {
+    return new Date();
+  }
+
   public constructor(
-    protected readonly tickerPriceRepository: Repository<TickerPrice>,
-    protected readonly tickerSubscriptionRepository: Repository<TickerSubscription>,
-    protected readonly notificationLogRepository: Repository<NotificationLog>,
+    protected readonly tickerPriceService: TickerPriceService,
+    protected readonly tickerSubscriptionService: TickerSubscriptionService,
+    protected readonly notificationLogService: NotificationLogService,
     protected readonly botService: TgBotService,
   ) {}
 
@@ -26,12 +33,9 @@ export abstract class BasePriceAlertService {
     if (!this.isEnabled) {
       return;
     }
-    const tickers = await this.tickerPriceRepository
-      .createQueryBuilder('tickerPrice')
-      .select('DISTINCT ticker')
-      .getRawMany();
+    const tickers = await this.tickerPriceService.getAllTickers();
 
-    for (const { ticker } of tickers) {
+    for (const ticker of tickers) {
       const currentPrice = await this.getCurrentPrice(ticker);
       const previousPrice = await this.getPreviousPrice(ticker);
 
@@ -40,6 +44,10 @@ export abstract class BasePriceAlertService {
 
         if (Math.abs(percentageChange) > this.priceChangeThreshold) {
           await this.notifySubscribers(ticker, currentPrice.ltp, percentageChange);
+        } else {
+          console.log(
+            `Skipping notification for ${ticker} due to price change threshold ${percentageChange.toFixed(2)}%`,
+          );
         }
       }
     }
@@ -54,7 +62,7 @@ export abstract class BasePriceAlertService {
   }
 
   protected async getPrice(ticker: string, isCurrent: boolean): Promise<TickerPrice | null> {
-    const currentTime = new Date();
+    const currentTime = this.currentDate;
     const lookupWindowInMinutes = isCurrent
       ? this.currentPriceLookupWindowInMinutes
       : this.prevPriceLookupWindowInMinutes;
@@ -63,12 +71,7 @@ export abstract class BasePriceAlertService {
     const startTime = new Date(referenceTime.getTime() - lookupWindowInMinutes * 60 * 1000);
     const endTime = isCurrent ? currentTime : new Date(referenceTime.getTime() + lookupWindowInMinutes * 60 * 1000);
 
-    const prices = await this.tickerPriceRepository.find({
-      where: {
-        ticker,
-        priceTime: Between(startTime, endTime),
-      },
-    });
+    const prices = await this.tickerPriceService.getPrices(ticker, startTime, endTime);
 
     if (!prices.length) {
       // No price found, handle accordingly
@@ -86,23 +89,21 @@ export abstract class BasePriceAlertService {
   }
 
   private async notifySubscribers(ticker: string, ltp: number, percentageChange: number) {
-    const lastNotification = await this.notificationLogRepository.findOne({
-      where: { ticker },
-      order: { sentAt: 'DESC' },
-    });
+    const lastNotification = await this.notificationLogService.getLatestNotification(ticker);
 
-    const now = new Date();
+    const now = this.currentDate;
     if (!lastNotification || now.getTime() - new Date(lastNotification.sentAt).getTime() > this.cooldownTime) {
-      const subscriptions = await this.tickerSubscriptionRepository.find({ where: { ticker } });
+      const subscriptions = await this.tickerSubscriptionService.getSubscriptionsByTicker(ticker);
 
       for (const subscription of subscriptions) {
-        await this.botService.sendPriceAlert(
-          subscription.chatId,
-          ticker,
-          ltp,
-          percentageChange,
-          this.interval / 1000 / 60,
-        );
+        // await this.botService.sendPriceAlert(
+        //   subscription.chatId,
+        //   ticker,
+        //   ltp,
+        //   percentageChange,
+        //   this.interval / 1000 / 60,
+        // );
+        await this.botService.sendMessage(subscription.chatId, this.getFormatedMsg(ticker, ltp, percentageChange, now));
         console.log(
           `Sending notification to ${subscription.chatId}: ${ticker} price increased by ${percentageChange.toFixed(
             2,
@@ -114,7 +115,9 @@ export abstract class BasePriceAlertService {
       const notificationLog = new NotificationLog();
       notificationLog.ticker = ticker;
       notificationLog.sentAt = now;
-      await this.notificationLogRepository.save(notificationLog);
+      await this.notificationLogService.save(notificationLog);
+    } else {
+      console.log(`Skipping notification for ${ticker} due to cooldown`);
     }
   }
 }

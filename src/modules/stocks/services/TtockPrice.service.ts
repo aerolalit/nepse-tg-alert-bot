@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Between, Repository } from 'typeorm';
 import { TickerPrice } from '../entities/TickerPrice.entity';
 import { subMilliseconds } from 'date-fns';
 import parseDuration from 'parse-duration';
@@ -19,6 +19,24 @@ export class TickerPriceService {
 
   public async getAllTickerPrices(): Promise<TickerPrice[]> {
     return this.tickerPriceRepository.find();
+  }
+
+  public async getAllTickers(): Promise<string[]> {
+    return this.tickerPriceRepository
+      .createQueryBuilder('TickerPrice')
+      .select('DISTINCT ticker')
+      .getRawMany()
+      .then((tickers) => tickers.map(({ ticker }) => ticker));
+  }
+
+  // get all pricess between two dates for ticker
+  public async getPrices(ticker: string, startDate: Date, endDate: Date): Promise<TickerPrice[]> {
+    return this.tickerPriceRepository.find({
+      where: {
+        ticker,
+        priceTime: Between(startDate, endDate),
+      },
+    });
   }
 
   public async getTickerPrice(ticker: string, priceTime: Date): Promise<TickerPrice | null> {

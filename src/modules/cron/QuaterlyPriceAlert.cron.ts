@@ -1,12 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { BasePriceAlertService } from './BasePriceAlert.service';
 import { Cron } from '@nestjs/schedule';
-import { InjectRepository } from '@nestjs/typeorm';
-import { NotificationLog } from '../notification-log/NotificationLog.entity';
-import { Repository } from 'typeorm';
-import { TickerSubscription } from '../stocks/entities/TickerSubscription.entity';
-import { TickerPrice } from '../stocks/entities/TickerPrice.entity';
 import { TgBotService } from '../tg-bot/TgBot.service';
+import { NotificationLogService } from '../notification-log/NotificationLog.service';
+import { TickerPriceService } from '../stocks/services/TtockPrice.service';
+import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 
 @Injectable()
 export class QuaterlyPriceAlertService extends BasePriceAlertService {
@@ -19,19 +17,22 @@ export class QuaterlyPriceAlertService extends BasePriceAlertService {
   protected readonly prevPriceLookupWindowInMinutes = 2;
 
   public constructor(
-    @InjectRepository(TickerPrice)
-    protected readonly tickerPriceRepository: Repository<TickerPrice>,
-    @InjectRepository(TickerSubscription)
-    protected readonly tickerSubscriptionRepository: Repository<TickerSubscription>,
-    @InjectRepository(NotificationLog)
-    protected readonly notificationLogRepository: Repository<NotificationLog>,
+    protected readonly tickerPriceService: TickerPriceService,
+    protected readonly tickerSubscriptionService: TickerSubscriptionService,
+    protected readonly notificationLogService: NotificationLogService,
     protected readonly botService: TgBotService,
   ) {
-    super(tickerPriceRepository, tickerSubscriptionRepository, notificationLogRepository, botService);
+    super(tickerPriceService, tickerSubscriptionService, notificationLogService, botService);
   }
 
   @Cron('*/2 * * * *') // Every 2 minutes
   public async handleCron() {
     await super.handleCron();
+  }
+
+  protected getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string {
+    return `Price Alert: ${ticker} price has changed by ${percentageChange.toFixed(2)}% to ${ltp.toFixed(
+      2,
+    )} at ${priceTime}`;
   }
 }

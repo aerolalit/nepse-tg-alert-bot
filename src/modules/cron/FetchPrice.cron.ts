@@ -16,6 +16,7 @@ export class PriceFetchCron {
 
   @Cron('* * * * *')
   public async sendPriceRequestCron(): Promise<void> {
+    return;
     this.logger.log('Price request cron job started');
     await this.sendPriceRequest();
     await this.sleep(10 * 1000);

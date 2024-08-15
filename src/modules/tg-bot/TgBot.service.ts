@@ -235,7 +235,7 @@ export class TgBotService implements OnModuleInit {
     this.sendMessage(chatId, message);
   }
 
-  private async sendMessage(chatId: number | string, text: string) {
+  public async sendMessage(chatId: number | string, text: string) {
     return this.bot.sendMessage(chatId, text);
   }
 

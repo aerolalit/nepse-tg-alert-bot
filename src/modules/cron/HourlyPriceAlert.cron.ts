@@ -1,16 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { BasePriceAlertService } from './BasePriceAlert.service';
 import { Cron } from '@nestjs/schedule';
-import { InjectRepository } from '@nestjs/typeorm';
-import { NotificationLog } from '../notification-log/NotificationLog.entity';
-import { Repository } from 'typeorm';
-import { TickerSubscription } from '../stocks/entities/TickerSubscription.entity';
-import { TickerPrice } from '../stocks/entities/TickerPrice.entity';
 import { TgBotService } from '../tg-bot/TgBot.service';
+import { NotificationLogService } from '../notification-log/NotificationLog.service';
+import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
+import { TickerPriceService } from '../stocks/services/TtockPrice.service';
 
 @Injectable()
 export class HourlyPriceAlertService extends BasePriceAlertService {
-  protected isEnabled: boolean = false;
+  protected isEnabled: boolean = true;
   protected readonly priceChangeThreshold = 5; // Percentage
 
   protected readonly interval = 60 * 60 * 1000; // 1 hour in milliseconds
@@ -19,19 +17,20 @@ export class HourlyPriceAlertService extends BasePriceAlertService {
   protected readonly prevPriceLookupWindowInMinutes = 5;
 
   public constructor(
-    @InjectRepository(TickerPrice)
-    protected readonly tickerPriceRepository: Repository<TickerPrice>,
-    @InjectRepository(TickerSubscription)
-    protected readonly tickerSubscriptionRepository: Repository<TickerSubscription>,
-    @InjectRepository(NotificationLog)
-    protected readonly notificationLogRepository: Repository<NotificationLog>,
+    protected readonly tickerPriceService: TickerPriceService,
+    protected readonly tickerSubscriptionService: TickerSubscriptionService,
+    protected readonly notificationLogService: NotificationLogService,
     protected readonly botService: TgBotService,
   ) {
-    super(tickerPriceRepository, tickerSubscriptionRepository, notificationLogRepository, botService);
+    super(tickerPriceService, tickerSubscriptionService, notificationLogService, botService);
   }
 
   @Cron('*/5 * * * *') // Every 5 minutes
   public async handleCron() {
     await super.handleCron();
+  }
+
+  protected getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string {
+    return `Price Alert: ${ticker} price has changed by ${percentageChange.toFixed(2)}% to ${ltp.toFixed(2)} at`;
   }
 }

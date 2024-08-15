@@ -25,4 +25,19 @@ export class NotificationLogService {
     });
     return count > 0;
   }
+
+  public async getLatestNotification(ticker: string): Promise<NotificationLog | null> {
+    return this.notificationLogRepository.findOne({
+      where: {
+        ticker,
+      },
+      order: {
+        sentAt: 'DESC',
+      },
+    });
+  }
+
+  public async save(notificationLog: NotificationLog): Promise<NotificationLog> {
+    return this.notificationLogRepository.save(notificationLog);
+  }
 }
