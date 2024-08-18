@@ -10,7 +10,7 @@ import { TickerPriceModule } from './modules/stocks/TickerPrice.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { PriceFetchCron } from './modules/cron/FetchPrice.cron';
 import { TgBotModule } from './modules/tg-bot/TgBot.module';
-import { NotificationLogModule } from './modules/notification-log/Nofication.module';
+import { AlertLogModule } from './modules/notification-log/AlertLog.module';
 import { CronModule } from './modules/cron/Cron.module';
 
 @Module({
@@ -35,7 +35,7 @@ import { CronModule } from './modules/cron/Cron.module';
     TickerPriceModule,
     CoreModule,
     TgBotModule,
-    NotificationLogModule,
+    AlertLogModule,
     CronModule,
   ],
   providers: [PriceFetchCron],

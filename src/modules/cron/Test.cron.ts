@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { BasePriceAlertService } from './BasePriceAlert.service';
 import { TgBotService } from '../tg-bot/TgBot.service';
-import { NotificationLogService } from '../notification-log/NotificationLog.service';
+import { AlertLogService } from '../notification-log/AlertLog.service';
 import { TickerPriceService } from '../stocks/services/TtockPrice.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 import * as moment from 'moment-timezone';
@@ -19,10 +19,10 @@ export class TestPriceAlertCron extends BasePriceAlertService {
   public constructor(
     protected readonly tickerPriceService: TickerPriceService,
     protected readonly tickerSubscriptionService: TickerSubscriptionService,
-    protected readonly notificationLogService: NotificationLogService,
+    protected readonly alertLogService: AlertLogService,
     protected readonly botService: TgBotService,
   ) {
-    super(tickerPriceService, tickerSubscriptionService, notificationLogService, botService);
+    super(tickerPriceService, tickerSubscriptionService, alertLogService, botService);
     console.log('TestPriceAlertCron constructor');
     this.handleCron();
   }
@@ -45,7 +45,7 @@ export class TestPriceAlertCron extends BasePriceAlertService {
   protected getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string {
     const icon = percentageChange > 0 ? '🟢' : '🔴';
     const symbol = percentageChange > 0 ? '+' : '';
-    const interval = this.interval < 60 ? `${this.interval / 60 / 1000}m` : `${this.interval / 60 / 1000}h`;
+    const interval = this.interval < 60 ? `${this.interval / 60 / 1000}m` : `${this.interval / 60 /60/ 1000}h`;
     const formattedTime = moment(priceTime).tz('Asia/Kathmandu').format('MM-DD HH:mm:ss');
     return (
       icon +

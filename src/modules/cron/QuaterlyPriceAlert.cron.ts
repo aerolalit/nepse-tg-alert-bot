@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { BasePriceAlertService } from './BasePriceAlert.service';
 import { Cron } from '@nestjs/schedule';
 import { TgBotService } from '../tg-bot/TgBot.service';
-import { NotificationLogService } from '../notification-log/NotificationLog.service';
+import { AlertLogService } from '../notification-log/AlertLog.service';
 import { TickerPriceService } from '../stocks/services/TtockPrice.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 
@@ -19,10 +19,10 @@ export class QuaterlyPriceAlertService extends BasePriceAlertService {
   public constructor(
     protected readonly tickerPriceService: TickerPriceService,
     protected readonly tickerSubscriptionService: TickerSubscriptionService,
-    protected readonly notificationLogService: NotificationLogService,
+    protected readonly alertLogService: AlertLogService,
     protected readonly botService: TgBotService,
   ) {
-    super(tickerPriceService, tickerSubscriptionService, notificationLogService, botService);
+    super(tickerPriceService, tickerSubscriptionService, alertLogService, botService);
   }
 
   @Cron('*/2 * * * *') // Every 2 minutes

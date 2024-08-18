@@ -1,10 +1,10 @@
-import { NotificationLogService } from './../notification-log/NotificationLog.service';
 import { TickerPrice } from '../stocks/entities/TickerPrice.entity';
 import { Injectable } from '@nestjs/common';
-import { NotificationLog } from '../notification-log/NotificationLog.entity';
+import { AlertLog } from '../notification-log/AlertLog.entity';
 import { TgBotService } from '../tg-bot/TgBot.service';
 import { TickerPriceService } from '../stocks/services/TtockPrice.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
+import { AlertLogService } from '../notification-log/AlertLog.service';
 
 @Injectable()
 export abstract class BasePriceAlertService {
@@ -25,7 +25,7 @@ export abstract class BasePriceAlertService {
   public constructor(
     protected readonly tickerPriceService: TickerPriceService,
     protected readonly tickerSubscriptionService: TickerSubscriptionService,
-    protected readonly notificationLogService: NotificationLogService,
+    protected readonly alertLogService: AlertLogService,
     protected readonly botService: TgBotService,
   ) {}
 
@@ -89,7 +89,7 @@ export abstract class BasePriceAlertService {
   }
 
   private async notifySubscribers(ticker: string, ltp: number, percentageChange: number) {
-    const lastNotification = await this.notificationLogService.getLatestNotification(ticker);
+    const lastNotification = await this.alertLogService.getLatestNotification(ticker);
 
     const now = this.currentDate;
     if (!lastNotification || now.getTime() - new Date(lastNotification.sentAt).getTime() > this.cooldownTime) {
@@ -112,10 +112,12 @@ export abstract class BasePriceAlertService {
       }
 
       // Log the notification
-      const notificationLog = new NotificationLog();
-      notificationLog.ticker = ticker;
-      notificationLog.sentAt = now;
-      await this.notificationLogService.save(notificationLog);
+      const alertLog = new AlertLog();
+      alertLog.ticker = ticker;
+      alertLog.sentAt = now;
+      alertLog.alertType = 'test';
+      alertLog.percentageChange = percentageChange;
+      await this.alertLogService.save(alertLog);
     } else {
       console.log(`Skipping notification for ${ticker} due to cooldown`);
     }

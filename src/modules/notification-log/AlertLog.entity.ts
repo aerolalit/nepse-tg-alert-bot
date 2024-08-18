@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity('NotificationLog')
-export class NotificationLog {
+@Entity('AlertLog')
+export class AlertLog {
   @PrimaryGeneratedColumn()
   public id: number;
 
@@ -10,6 +10,12 @@ export class NotificationLog {
 
   @Column('timestamptz')
   public sentAt: Date;
+
+    @Column('text')
+  public alertType: string;
+
+  @Column('float')
+  public percentageChange: number;
 
   @CreateDateColumn()
   public createdAt: Date;
