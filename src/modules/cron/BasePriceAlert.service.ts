@@ -5,6 +5,7 @@ import { TgBotService } from '../tg-bot/TgBot.service';
 import { TickerPriceService } from '../stocks/services/TtockPrice.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 import { AlertLogService } from '../notification-log/AlertLog.service';
+import * as moment from 'moment-timezone';
 
 @Injectable()
 export abstract class BasePriceAlertService {
@@ -15,8 +16,6 @@ export abstract class BasePriceAlertService {
 
   protected abstract readonly prevPriceLookupWindowInMinutes: number;
   private readonly currentPriceLookupWindowInMinutes = 2;
-
-  protected abstract getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string;
 
   protected get currentDate(): Date {
     return new Date();
@@ -88,21 +87,23 @@ export abstract class BasePriceAlertService {
     return closestPrice;
   }
 
+  protected getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string {
+    const icon = percentageChange > 0 ? '🟢' : '🔴';
+    const symbol = percentageChange > 0 ? '+' : '';
+    const interval =
+      this.interval < 60 * 60 * 1000 ? `${this.interval / 60 / 1000}m` : `${this.interval / 60 / 60 / 1000}h`;
+    const formattedTime = moment(priceTime).tz('Asia/Kathmandu').format('MM-DD HH:mm:ss');
+    return icon + `${ticker} ltp: ${ltp} (${symbol}${percentageChange.toFixed(2)}% in last ${interval})`;
+  }
+
   private async notifySubscribers(ticker: string, ltp: number, percentageChange: number) {
-    const lastNotification = await this.alertLogService.getLatestNotification(ticker);
+    const lastAlert = await this.alertLogService.getLatestNotification(ticker);
 
     const now = this.currentDate;
-    if (!lastNotification || now.getTime() - new Date(lastNotification.sentAt).getTime() > this.cooldownTime) {
+    if (!lastAlert || now.getTime() - new Date(lastAlert.sentAt).getTime() > this.cooldownTime) {
       const subscriptions = await this.tickerSubscriptionService.getSubscriptionsByTicker(ticker);
 
       for (const subscription of subscriptions) {
-        // await this.botService.sendPriceAlert(
-        //   subscription.chatId,
-        //   ticker,
-        //   ltp,
-        //   percentageChange,
-        //   this.interval / 1000 / 60,
-        // );
         await this.botService.sendMessage(subscription.chatId, this.getFormatedMsg(ticker, ltp, percentageChange, now));
         console.log(
           `Sending notification to ${subscription.chatId}: ${ticker} price increased by ${percentageChange.toFixed(

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { BasePriceAlertService } from './BasePriceAlert.service';
 import { Cron } from '@nestjs/schedule';
 import { TgBotService } from '../tg-bot/TgBot.service';
@@ -8,8 +8,9 @@ import { TickerPriceService } from '../stocks/services/TtockPrice.service';
 
 @Injectable()
 export class HourlyPriceAlertService extends BasePriceAlertService {
+  private readonly logger = new Logger(HourlyPriceAlertService.name);
   protected isEnabled: boolean = true;
-  protected readonly priceChangeThreshold = 5; // Percentage
+  protected readonly priceChangeThreshold = 4; // Percentage
 
   protected readonly interval = 60 * 60 * 1000; // 1 hour in milliseconds
   protected readonly cooldownTime = 10 * 60 * 1000; // 10 minutes in milliseconds
@@ -25,12 +26,9 @@ export class HourlyPriceAlertService extends BasePriceAlertService {
     super(tickerPriceService, tickerSubscriptionService, alertLogService, botService);
   }
 
-  @Cron('*/5 * * * *') // Every 5 minutes
+  @Cron('*/5 7-12 * * 0-4') // Sunday to Thursday, 7am to 12pm every 5 minutes
   public async handleCron() {
+    this.logger.log('Running HourlyPriceAlertService');
     await super.handleCron();
-  }
-
-  protected getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string {
-    return `Price Alert: ${ticker} price has changed by ${percentageChange.toFixed(2)}% to ${ltp.toFixed(2)} at`;
   }
 }

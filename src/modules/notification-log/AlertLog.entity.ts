@@ -11,7 +11,7 @@ export class AlertLog {
   @Column('timestamptz')
   public sentAt: Date;
 
-    @Column('text')
+  @Column('text')
   public alertType: string;
 
   @Column('float')

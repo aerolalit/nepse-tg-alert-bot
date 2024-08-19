@@ -1,18 +1,22 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TickerSubscription } from '../entities/TickerSubscription.entity';
 
 @Injectable()
 export class TickerSubscriptionService {
+  private readonly logger = new Logger(TickerSubscriptionService.name);
+
   public constructor(
     @InjectRepository(TickerSubscription)
     private readonly tickerSubscriptionRepository: Repository<TickerSubscription>,
   ) {}
 
   public async createSubscription(chatId: string, ticker: string): Promise<TickerSubscription> {
-    const subscription = this.tickerSubscriptionRepository.create({ ticker, chatId });
-    return this.tickerSubscriptionRepository.save(subscription);
+    let subscription = this.tickerSubscriptionRepository.create({ ticker, chatId });
+    subscription = await this.tickerSubscriptionRepository.save(subscription);
+    this.logger.log(`Created subscription for ${chatId} to ${ticker}`);
+    return subscription;
   }
 
   public async getSubscriptionsByTicker(ticker: string): Promise<TickerSubscription[]> {
@@ -22,6 +26,7 @@ export class TickerSubscriptionService {
   public async deleteSubscription(chatId: string, ticker: string): Promise<void> {
     await this.tickerSubscriptionRepository.delete({ ticker, chatId });
     await this.listSubscriptionsByChatId(chatId);
+    this.logger.log(`Deleted subscription for ${chatId} to ${ticker}`);
   }
 
   public async listSubscriptionsByChatId(chatId: string): Promise<TickerSubscription[]> {

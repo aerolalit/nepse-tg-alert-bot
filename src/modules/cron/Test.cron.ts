@@ -9,10 +9,10 @@ import * as moment from 'moment-timezone';
 @Injectable()
 export class TestPriceAlertCron extends BasePriceAlertService {
   protected isEnabled: boolean = true;
-  protected readonly priceChangeThreshold = 4; // Percentage
+  protected readonly priceChangeThreshold = 3; // Percentage
 
-  protected readonly interval = 60 * 60 * 1000; // 1 hour in milliseconds
-  protected readonly cooldownTime = 30 * 60 * 1000; // 10 minutes in milliseconds
+  protected interval = 15 * 60 * 1000; // 1 hour in milliseconds
+  protected cooldownTime = 30 * 60 * 1000; // 10 minutes in milliseconds
 
   protected readonly prevPriceLookupWindowInMinutes = 5;
 
@@ -23,8 +23,7 @@ export class TestPriceAlertCron extends BasePriceAlertService {
     protected readonly botService: TgBotService,
   ) {
     super(tickerPriceService, tickerSubscriptionService, alertLogService, botService);
-    console.log('TestPriceAlertCron constructor');
-    this.handleCron();
+    // this.handleCron();
   }
 
   private minute = 60;
@@ -32,24 +31,35 @@ export class TestPriceAlertCron extends BasePriceAlertService {
   public async handleCron() {
     for (let i = 0; i < 300; i++) {
       console.log(`Minute: ${this.minute}`);
+      this.interval = 15 * 60 * 1000;
+      this.cooldownTime = 10 * 60 * 1000;
       await super.handleCron();
+
+      this.interval = 30 * 60 * 1000;
+      this.cooldownTime = 20 * 60 * 1000;
+      await super.handleCron();
+
+      this.interval = 60 * 60 * 1000;
+      this.cooldownTime = 40 * 60 * 1000;
+      await super.handleCron();
+
       this.minute += 1;
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   }
 
   protected get currentDate(): Date {
-    return new Date(new Date('2024-08-14 07:02:12.847615+02').getTime() + this.minute * 60 * 1000);
+    return new Date(new Date('2024-08-18 07:02:12.847615+02').getTime() + this.minute * 60 * 1000);
   }
 
   protected getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string {
     const icon = percentageChange > 0 ? '🟢' : '🔴';
     const symbol = percentageChange > 0 ? '+' : '';
-    const interval = this.interval < 60 ? `${this.interval / 60 / 1000}m` : `${this.interval / 60 /60/ 1000}h`;
+    const interval =
+      this.interval < 60 * 60 * 1000 ? `${this.interval / 60 / 1000}m` : `${this.interval / 60 / 60 / 1000}h`;
     const formattedTime = moment(priceTime).tz('Asia/Kathmandu').format('MM-DD HH:mm:ss');
     return (
-      icon +
-      ` ${ticker} - ltp: ${ltp} (${symbol}${percentageChange.toFixed(2)}% in last ${interval}) at ${formattedTime}`
+      icon + `${ticker} ltp: ${ltp} (${symbol}${percentageChange.toFixed(2)}% in last ${interval}) ${formattedTime}`
     );
   }
 }

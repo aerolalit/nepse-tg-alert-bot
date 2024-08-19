@@ -10,7 +10,7 @@ import { AlertLogService } from '../notification-log/AlertLog.service';
 @Injectable()
 export class QuaterlyPriceAlertService extends BasePriceAlertService {
   protected isEnabled: boolean = false;
-  protected readonly priceChangeThreshold = 2; // Percentage
+  protected readonly priceChangeThreshold = 3; // Percentage
 
   protected readonly interval = 5 * 60 * 1000; // 1 hour in milliseconds
   protected readonly cooldownTime = 2 * 60 * 1000; // 10 minutes in milliseconds
@@ -26,15 +26,8 @@ export class QuaterlyPriceAlertService extends BasePriceAlertService {
     super(tickerPriceService, tickerSubscriptionService, alertLogService, botService);
   }
 
-  @Cron('*/1 * * * *') // Every 2 minutes
+  @Cron('* 7-12 * * 0-4') // Sunday to Thursday, 7am to 12pm every 1 minute
   public async handleCron() {
     await super.handleCron();
-  }
-
-  protected getFormatedMsg(ticker: string, ltp: number, percentageChange: number, priceTime: Date): string {
-    const formattedTime = moment(priceTime).tz('Asia/Kathmandu').format('MM-DD HH:mm:ss');
-    return `Price Alert: ${ticker} price has changed by ${percentageChange.toFixed(2)}% to ${ltp.toFixed(
-      2,
-    )} at ${formattedTime}`;
   }
 }
