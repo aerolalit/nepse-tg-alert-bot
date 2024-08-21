@@ -5,9 +5,11 @@ import { TgBotModule } from '../tg-bot/TgBot.module';
 import { TestPriceAlertCron } from './Test.cron';
 import { TickerPriceModule } from '../stocks/TickerPrice.module';
 import { AlertLogModule } from '../notification-log/AlertLog.module';
+import { MilestoneCron } from './milestones/Milestone.cron';
+import { MilestoneAlertService } from '../notification-log/services/MilestoneAlert.service';
 
 @Module({
   imports: [TgBotModule, TickerPriceModule, AlertLogModule],
-  providers: [HourlyPriceAlertService, QuaterlyPriceAlertService, TestPriceAlertCron],
+  providers: [HourlyPriceAlertService, QuaterlyPriceAlertService, TestPriceAlertCron, MilestoneCron],
 })
 export class CronModule {}

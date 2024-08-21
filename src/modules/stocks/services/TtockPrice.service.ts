@@ -39,6 +39,10 @@ export class TickerPriceService {
     });
   }
 
+  public async getLatestTickerPrice(ticker: string): Promise<TickerPrice> {
+    return this.tickerPriceRepository.findOneOrFail({ where: { ticker }, order: { priceTime: 'DESC' } });
+  }
+
   public async getTickerPrice(ticker: string, priceTime: Date): Promise<TickerPrice | null> {
     return this.tickerPriceRepository
       .createQueryBuilder('TickerPrice')
@@ -46,6 +50,14 @@ export class TickerPriceService {
       .andWhere('TickerPrice.priceTime <= :priceTime', { priceTime })
       .orderBy('TickerPrice.priceTime', 'DESC')
       .getOne();
+  }
+  public async getTickerPriceOrFail(ticker: string, priceTime: Date): Promise<TickerPrice> {
+    return this.tickerPriceRepository
+      .createQueryBuilder('TickerPrice')
+      .where('TickerPrice.ticker = :ticker', { ticker })
+      .andWhere('TickerPrice.priceTime <= :priceTime', { priceTime })
+      .orderBy('TickerPrice.priceTime', 'DESC')
+      .getOneOrFail();
   }
 
   public async getTickerPriceBefore(ticker: string, timeAmount: string): Promise<TickerPrice | null> {

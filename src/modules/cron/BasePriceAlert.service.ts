@@ -1,6 +1,6 @@
 import { TickerPrice } from '../stocks/entities/TickerPrice.entity';
 import { Injectable } from '@nestjs/common';
-import { AlertLog } from '../notification-log/AlertLog.entity';
+import { AlertLog } from '../notification-log/entities/AlertLog.entity';
 import { TgBotService } from '../tg-bot/TgBot.service';
 import { TickerPriceService } from '../stocks/services/TtockPrice.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';

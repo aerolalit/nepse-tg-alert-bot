@@ -8,7 +8,7 @@ export class TickerPrice {
   @PrimaryColumn('timestamptz')
   public priceTime: Date;
 
-  @Column('decimal')
+  @Column('numeric')
   public ltp: number;
 
   @CreateDateColumn()
