@@ -1,9 +1,9 @@
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import * as TelegramBot from 'node-telegram-bot-api';
 import { AppConfigService } from 'src/core/config/appConfig.service';
-import { tickers } from './Tickers.list';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 import { TickerSubscription } from '../stocks/entities/TickerSubscription.entity';
+import { TickerService } from '../stocks/services/Ticker.service';
 
 enum BotCommands {
   start = 'start',
@@ -29,6 +29,7 @@ export class TgBotService implements OnModuleInit {
   public constructor(
     private readonly appConfigService: AppConfigService,
     private readonly subscriptionService: TickerSubscriptionService,
+    private readonly tickerService:TickerService,
   ) {}
 
   public onModuleInit() {
@@ -171,7 +172,10 @@ export class TgBotService implements OnModuleInit {
   }
 
   private async sendSubscribeOptions(chatId: number | string, page: number = 0) {
-    const fullPageRow = 10;
+    const tickersObj = await this.tickerService.findAll();
+    const tickers = tickersObj.map((x) => x.ticker);
+
+    const fullPageRow = 5;
     const fullPageCol = 5;
     const fullPageSize = fullPageRow * fullPageCol;
     const pageSize = Math.min(tickers.length - fullPageSize * page, fullPageSize);

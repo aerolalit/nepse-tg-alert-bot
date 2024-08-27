@@ -33,6 +33,14 @@ export class TickerSubscriptionService {
     return this.tickerSubscriptionRepository.find({ where: { chatId } });
   }
 
+  public async getChatIds(): Promise<string[]> {
+    return this.tickerSubscriptionRepository.createQueryBuilder()
+      .select('"chatId"')
+      .distinct(true)
+      .getRawMany()
+      .then((result) => result.map((r) => r.chatId));
+  }
+
   public async deleteAllSubscriptionsByChatId(chatId: string): Promise<void> {
     await this.tickerSubscriptionRepository.delete({ chatId });
   }
