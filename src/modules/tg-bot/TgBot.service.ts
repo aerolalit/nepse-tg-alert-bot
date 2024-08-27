@@ -180,7 +180,7 @@ export class TgBotService implements OnModuleInit {
     const fullPageSize = fullPageRow * fullPageCol;
     const pageSize = Math.min(tickers.length - fullPageSize * page, fullPageSize);
     const totalPage = Math.ceil(tickers.length / fullPageSize);
-    const start = page * pageSize;
+    const start = page * fullPageSize;
     const end = start + pageSize;
     const tickersPage = tickers.slice(start, end);
     const pageRow = Math.ceil(pageSize / fullPageCol);
