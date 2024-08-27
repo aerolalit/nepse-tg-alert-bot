@@ -1,29 +1,30 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository } from 'typeorm';
+import { DeleteResult, InsertResult, Repository } from 'typeorm';
 import { Ticker } from '../entities/Ticker.entity';
+import { CreateTickerDto } from '../dtos/CreateTicker..dto';
 
 @Injectable()
 export class TickerService {
   public constructor(
     @InjectRepository(Ticker)
-    private readonly TickerRepository: Repository<Ticker>,
+    private readonly repo: Repository<Ticker>,
   ) {}
 
   public async findAll(): Promise<Ticker[]> {
-    return this.TickerRepository.find();
+    return this.repo.find();
   }
 
   public async count(): Promise<number> {
-    return this.TickerRepository.count();
+    return this.repo.count();
   }
 
-  public async insert(ticker: string): Promise<Ticker> {
-    const newTicker = this.TickerRepository.create({ ticker });
-    return this.TickerRepository.save(newTicker);
+  public async insert(dto: CreateTickerDto): Promise<InsertResult> {
+    const newTicker = this.repo.create(dto);
+    return this.repo.insert(newTicker);
   }
 
   public async delete(ticker: string): Promise<DeleteResult> {
-    return this.TickerRepository.delete({ ticker });
+    return this.repo.delete({ ticker });
   }
 }
