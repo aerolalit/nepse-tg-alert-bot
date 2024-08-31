@@ -12,6 +12,7 @@ import { PriceFetchCron } from './modules/cron/FetchPrice.cron';
 import { TgBotModule } from './modules/tg-bot/TgBot.module';
 import { AlertLogModule } from './modules/notification-log/AlertLog.module';
 import { CronModule } from './modules/cron/Cron.module';
+import { ChatMessageModule } from './modules/chat/ChatMessage.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { CronModule } from './modules/cron/Cron.module';
     TgBotModule,
     AlertLogModule,
     CronModule,
+    ChatMessageModule
   ],
   providers: [PriceFetchCron],
 })

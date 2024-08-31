@@ -9,8 +9,9 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/dist/src/main.js",
-      "outFiles": ["${workspaceFolder}/**/*.js"]
+      "program": "${workspaceFolder}/dist/src/main.js", // Ensure this path is correct
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"], // Adjusted to match typical output structure
+      "sourceMaps": true // Ensure source maps are enabled if using TypeScript
     }
   ]
 }

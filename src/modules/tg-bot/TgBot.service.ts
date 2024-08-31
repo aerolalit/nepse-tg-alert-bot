@@ -4,6 +4,8 @@ import { AppConfigService } from 'src/core/config/appConfig.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 import { TickerSubscription } from '../stocks/entities/TickerSubscription.entity';
 import { TickerService } from '../stocks/services/Ticker.service';
+import { ChatMessageService } from '../chat/ChatMessage.service';
+import { CreateChatMessageDto } from '../chat/dtos/CreateChatMessage.dto';
 
 enum BotCommands {
   start = 'start',
@@ -29,7 +31,8 @@ export class TgBotService implements OnModuleInit {
   public constructor(
     private readonly appConfigService: AppConfigService,
     private readonly subscriptionService: TickerSubscriptionService,
-    private readonly tickerService:TickerService,
+    private readonly tickerService: TickerService,
+    private readonly chatMessageService: ChatMessageService,
   ) {}
 
   public onModuleInit() {
@@ -38,11 +41,18 @@ export class TgBotService implements OnModuleInit {
 
     this.bot.setMyCommands(this.commands);
 
-    this.bot.on('message', (msg: TelegramBot.Message) => {
+    this.bot.on('message', async (msg: TelegramBot.Message) => {
       const chatId: number = msg.chat.id;
       const text: string = msg.text || '';
-
-      this.handleMessage(chatId, text);
+      const chatMessage: CreateChatMessageDto = {
+        id: msg.message_id.toString(),
+        senderId: chatId.toString(),
+        type: 'text',
+        message: text,
+      }
+  
+      await this.chatMessageService.create(chatMessage);
+      await this.handleMessage(chatId, text);
     });
 
     this.bot.on('callback_query', (callbackQuery) => this.handleCallbackQuery(callbackQuery));
