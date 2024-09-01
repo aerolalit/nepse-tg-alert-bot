@@ -3,10 +3,13 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity('ChatMessage')
 export class ChatMessage {
   @PrimaryColumn('text')
-  public id: string;
+  public chatId: string;
 
-  @Column('text')
+  @PrimaryColumn('text')
   public senderId: string;
+
+  @PrimaryColumn('text')
+  public id: string;
 
   @Column('text')
   public type: string;

@@ -20,7 +20,7 @@ export class ChatMessageService {
     return this.chatMessageRepository.find();
   }
 
-  public async remove(id: string): Promise<void> {
-    await this.chatMessageRepository.delete(id);
+  public async remove(chatId: string, senderId: string, id: string): Promise<void> {
+    await this.chatMessageRepository.delete({ chatId, senderId, id });
   }
 }

@@ -47,6 +47,7 @@ export class TgBotService implements OnModuleInit {
     const chatId: number = msg.chat.id;
     const text: string = msg.text || '';
     const chatMessage: CreateChatMessageDto = {
+      chatId: chatId.toString(),
       id: msg.message_id.toString(),
       senderId: chatId.toString(),
       type: ChatMessageType.Text,
