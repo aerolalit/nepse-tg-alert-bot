@@ -274,9 +274,11 @@ export class TgBotService implements OnModuleInit {
 
   private async getUnsubscribeButtons(chatId: number | string): Promise<TelegramBot.InlineKeyboardButton[][]> {
     const subscribedTickers = await this.subscriptionService.listSubscriptionsByChatId(chatId.toString());
-    return subscribedTickers.map((subs: TickerSubscription) => [
-      { text: `Unsubscribe ${subs.ticker}`, callback_data: `unsubscribeTicker_${subs.ticker}` },
-    ]);
+    return subscribedTickers
+      .sort((a, b) => a.ticker.localeCompare(b.ticker))
+      .map((subs: TickerSubscription) => [
+        { text: `Unsubscribe ${subs.ticker}`, callback_data: `unsubscribeTicker_${subs.ticker}` },
+      ]);
   }
 
   public async listSubscriptions(chatId: TelegramBot.ChatId) {
