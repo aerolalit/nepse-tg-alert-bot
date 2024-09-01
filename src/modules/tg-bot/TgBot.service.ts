@@ -6,13 +6,16 @@ import { TickerSubscription } from '../stocks/entities/TickerSubscription.entity
 import { TickerService } from '../stocks/services/Ticker.service';
 import { ChatMessageService } from '../chat/ChatMessage.service';
 import { CreateChatMessageDto } from '../chat/dtos/CreateChatMessage.dto';
+import { ChatMessageType } from '../chat/enums/ChatMessageType.enum';
 
 enum BotCommands {
   start = 'start',
-  list_subscriptions = 'list_subscriptions',
-  subscribe = 'subscribe',
-  unsubscribe = 'unsubscribe',
-  help = 'help',
+}
+
+enum BotMessages {
+  RequestTicker = 'Please enter the ticker you want to request',
+  RequestFeature = 'Please provide the details of the feature you want to request.',
+  Feedback = 'Please write your feedback.',
 }
 
 @Injectable()
@@ -20,13 +23,7 @@ export class TgBotService implements OnModuleInit {
   private bot: TelegramBot;
   private readonly logger = new Logger(TgBotService.name);
 
-  private readonly commands: TelegramBot.BotCommand[] = [
-    { command: BotCommands.start, description: 'Start the bot' },
-    { command: BotCommands.list_subscriptions, description: 'List all subscriptions' },
-    { command: BotCommands.subscribe, description: 'Subscribe for price alerts' },
-    { command: BotCommands.unsubscribe, description: 'Unsubscribe subscriptions' },
-    { command: BotCommands.help, description: 'Get help' },
-  ];
+  private readonly commands: TelegramBot.BotCommand[] = [{ command: BotCommands.start, description: 'Start the bot' }];
 
   public constructor(
     private readonly appConfigService: AppConfigService,
@@ -41,21 +38,47 @@ export class TgBotService implements OnModuleInit {
 
     this.bot.setMyCommands(this.commands);
 
-    this.bot.on('message', async (msg: TelegramBot.Message) => {
-      const chatId: number = msg.chat.id;
-      const text: string = msg.text || '';
-      const chatMessage: CreateChatMessageDto = {
-        id: msg.message_id.toString(),
-        senderId: chatId.toString(),
-        type: 'text',
-        message: text,
-      }
-  
-      await this.chatMessageService.create(chatMessage);
-      await this.handleMessage(chatId, text);
-    });
+    this.bot.on('message', async (msg: TelegramBot.Message) => this.handleMessage(msg));
 
     this.bot.on('callback_query', (callbackQuery) => this.handleCallbackQuery(callbackQuery));
+  }
+
+  public async handleMessage(msg: TelegramBot.Message) {
+    const chatId: number = msg.chat.id;
+    const text: string = msg.text || '';
+    const chatMessage: CreateChatMessageDto = {
+      id: msg.message_id.toString(),
+      senderId: chatId.toString(),
+      type: ChatMessageType.Text,
+      message: text,
+    };
+
+    if (msg.reply_to_message && msg.reply_to_message.text) {
+      switch (msg.reply_to_message.text) {
+        case BotMessages.RequestTicker:
+          chatMessage.type = ChatMessageType.TickerRequest;
+          await this.chatMessageService.create(chatMessage);
+          await this.bot.sendMessage(chatId, 'Ticker request received. We will notify you when it is added.', {reply_to_message_id: msg.message_id});
+          break;
+        case BotMessages.RequestFeature:
+          chatMessage.type = ChatMessageType.FeatureRequest;
+          await this.chatMessageService.create(chatMessage);
+          await this.bot.sendMessage(chatId, 'Feature request received. We will notify you when it is added.', {reply_to_message_id: msg.message_id});
+          break;
+        case BotMessages.Feedback:
+          chatMessage.type = ChatMessageType.Feedback;
+          await this.chatMessageService.create(chatMessage);
+          await this.bot.sendMessage(chatId, 'Feedback received. Thank you for your feedback.', {reply_to_message_id: msg.message_id});
+          break;
+      }
+      return;
+    }
+
+    switch (text) {
+      case '/start':
+        await this.sendMenuMessage(chatId);
+        break;
+    }
   }
 
   public async sendPriceAlert(
@@ -72,121 +95,148 @@ export class TgBotService implements OnModuleInit {
     await this.sendMessage(chatId, message);
   }
 
-  private async handleCallbackQuery(callbackQuery: TelegramBot.CallbackQuery) {
-    const chatId = callbackQuery.message?.chat.id as TelegramBot.ChatId;
-    const data = callbackQuery.data;
-
-    if (chatId && data) {
-      if (data && data.startsWith('unsubscribe_')) {
-        const ticker = data.split('_')[1];
-        await this.subscriptionService.deleteSubscription(chatId.toString(), ticker);
-        this.sendMessage(chatId, `Unsubscribed from ${ticker}`);
-        this.sendUnsubscribeOptions(chatId); // Refresh the list
-      } else if (data.startsWith('more_')) {
-        const page = parseInt(data.split('_')[1], 10);
-        this.sendSubscribeOptions(chatId, page);
-      } else if (data.startsWith('subscribe_')) {
-        const ticker = data.split('_')[1];
-        await this.subscribeForAlerts(chatId, ticker);
-        this.sendMessage(chatId, `Subscribed to ${ticker}`);
-      } else {
-        this.sendMessage(chatId, `Unknown callback ${data}`);
-      }
-    }
-  }
-
   private async subscribeForAlerts(chatId: number | string, ticker: string) {
     await this.subscriptionService.createSubscription(chatId.toString(), ticker);
   }
 
-  private handleMessage(chatId: number, text: string) {
-    if (text.startsWith('/')) {
-      this.handleCommand(chatId, text);
-    } else {
-      this.logger.log(`Received message: ${text} from chatId: ${chatId}`);
-    }
+  public getMenuButtons(): TelegramBot.InlineKeyboardButton[][] {
+    return [
+      [{ text: 'Subscribe new alerts', callback_data: 'subscribeNewAlert' }],
+      [{ text: 'Unsubscribe', callback_data: 'unsubscribeAlert' }],
+      [{ text: 'List all Subscription', callback_data: 'listSubscriptions' }],
+      [{ text: 'Feedback / Feature Request', callback_data: 'feedbackAndRequest'}]
+    ];
   }
 
-  private handleCommand(chatId: number, command: string) {
-    const [cmd] = command.split(' ');
-
-    switch (cmd) {
-      case '/list_subscriptions':
-        this.listSubscriptions(chatId);
-        break;
-      case '/start':
-        this.sendWelcomeMessage(chatId);
-        break;
-      case '/help':
-        this.sendHelpMessage(chatId);
-        this.sendTableMessage(chatId);
-        break;
-      case '/subscribe':
-        this.sendSubscribeOptions(chatId);
-        break;
-      case '/unsubscribe':
-        this.sendUnsubscribeOptions(chatId);
-        break;
-      default:
-        this.sendMessage(chatId, 'Unknown command');
-    }
+  public async sendMenuMessage(chatId: number | string) {
+    const message = 'Choose an option:';
+    const buttons = this.getMenuButtons();
+    await this.sendMessage(chatId, message, -1, buttons);
   }
 
-  private async sendUnsubscribeOptions(chatId: number | string) {
-    const subscribedTickers = await this.subscriptionService.listSubscriptionsByChatId(chatId.toString());
-    if (subscribedTickers.length === 0) {
-      this.sendMessage(chatId, 'You have no subscriptions.');
-      return;
+  private async handleCallbackQuery(callbackQuery: TelegramBot.CallbackQuery) {
+    const chatId = callbackQuery.message?.chat.id as TelegramBot.ChatId;
+    const messageId = callbackQuery.message?.message_id as number;
+    const data = callbackQuery.data;
+
+    const commandData = data?.split('_');
+
+    let menuButton = false;
+
+    if (chatId && data && commandData?.length) {
+      let newMessage = 'as';
+      let newButtons: TelegramBot.InlineKeyboardButton[][] = [];
+
+      switch (commandData[0]) {
+        case 'subscribeNewAlert':
+          newButtons = await this.getTickerButtons();
+          newMessage = 'Click on the ticker to subscribe:';
+          menuButton = true;
+          break;
+        case 'listSubscriptions':
+          await this.listSubscriptions(chatId);
+          return;
+        case 'unsubscribeTicker':
+          const tickerToUnsubscribe = commandData[1];
+          await this.subscriptionService.deleteSubscription(chatId.toString(), tickerToUnsubscribe);
+          await this.sendMessage(chatId, `Unsubscribed from ${tickerToUnsubscribe}`, 10000);
+        case 'unsubscribeAlert':
+          newMessage = 'Click on the ticker to unsubscribe:';
+          newButtons = await this.getUnsubscribeButtons(chatId);
+          menuButton = true;
+          break;
+        case 'loadSubscribePageNo':
+          newMessage = `Click on the ticker to subscribe:`;
+          const pageNo = parseInt(commandData[1], 10);
+          newButtons = await this.getTickerButtons(pageNo);
+          menuButton = true;
+          break;
+        case 'subscribeAlertsFor':
+          const ticker = commandData[1];
+          await this.subscribeForAlerts(chatId, ticker);
+          newMessage = `Subscribed alerts for ${ticker}`;
+          return this.sendMessage(chatId, newMessage, 10000);
+        case 'loadMenu':
+          newButtons = this.getMenuButtons();
+          newMessage = 'Choose an option:';
+          break;
+
+        case 'feedbackAndRequest':
+          newButtons = [
+            [{ text: 'Request new ticker.', callback_data: 'reqeustNewTicker' }],
+            [{ text: 'Request new feature', callback_data: 'reqeustNewFeature' }],
+            [{ text: 'Provide feedback', callback_data: 'submitFeedback' }],
+            this.menuBackButton,
+          ];
+          newMessage = 'Choose an option:';
+          break;
+        
+        case 'reqeustNewTicker':
+            await this.bot.sendMessage(chatId, BotMessages.RequestTicker, {
+              reply_markup: { force_reply: true },
+            });
+          return;
+        case 'reqeustNewFeature':
+          await this.bot.sendMessage(chatId, BotMessages.RequestFeature, { reply_markup: { force_reply: true } });
+          return;
+        case 'submitFeedback':
+          await this.bot.sendMessage(chatId, BotMessages.Feedback, { reply_markup: { force_reply: true } });
+          return;
+        default:
+          newMessage = 'Invalid command';
+      }
+
+      menuButton && newButtons.push(this.menuBackButton);
+      await this.editMessageText(chatId, messageId, newMessage, newButtons);
     }
+  }
+  private get menuBackButton(): TelegramBot.InlineKeyboardButton[] {
+    return [{ text: '🔙', callback_data: 'loadMenu' }]
+  }
 
-    const inlineKeyboard: TelegramBot.InlineKeyboardButton[][] = subscribedTickers.map((subs: TickerSubscription) => [
-      { text: `Unsubscribe ${subs.ticker}`, callback_data: `unsubscribe_${subs.ticker}` },
-    ]);
-
-    const options: TelegramBot.SendMessageOptions = {
+  private async editMessageText(
+    chatId: number | string,
+    messageId: number,
+    newText: string,
+    buttons: TelegramBot.InlineKeyboardButton[][],
+  ) {
+    const options = {
+      chat_id: chatId,
+      message_id: messageId,
       reply_markup: {
-        inline_keyboard: inlineKeyboard,
+        inline_keyboard: buttons,
       },
     };
 
-    this.bot.sendMessage(chatId, 'Select a subscription to unsubscribe:', options);
+    await this.bot.editMessageText(newText, options);
   }
 
-  private sendTableMessage(chatId: number) {
-    const tableData = [
-      ['Ticker', 'Price', 'Change'],
-      ['AAPL', '$150', '+1.5%'],
-      ['GOOGL', '$2800', '-0.5%'],
-      ['AMZN', '$3400', '+2.0%'],
-    ];
-
-    let tableMessage = '```\n';
-    tableData.forEach((row) => {
-      tableMessage += row.map((cell) => cell.padEnd(10)).join(' ') + '\n';
-    });
-    tableMessage += '```';
-
-    this.bot.sendMessage(chatId, tableMessage, { parse_mode: 'Markdown' });
+  private async getUnsubscribeButtons(chatId: number | string): Promise<TelegramBot.InlineKeyboardButton[][]> {
+    const subscribedTickers = await this.subscriptionService.listSubscriptionsByChatId(chatId.toString());
+    return subscribedTickers.map((subs: TickerSubscription) => [
+      { text: `Unsubscribe ${subs.ticker}`, callback_data: `unsubscribeTicker_${subs.ticker}` },
+    ]);
   }
-  public async listSubscriptions(chatId: number) {
+
+  public async listSubscriptions(chatId: TelegramBot.ChatId) {
     const subscribedTickers = await this.subscriptionService.listSubscriptionsByChatId(chatId.toString());
     if (subscribedTickers.length === 0) {
-      this.sendMessage(chatId, 'You have no subscriptions.');
+      this.sendMessage(chatId, 'You have no subscriptions.', 10000);
       return;
     }
 
     const subscriptionsList = subscribedTickers.map((subs: TickerSubscription) => subs.ticker).join('\n');
     const message = `Your subscriptions:\n${subscriptionsList}`;
 
-    this.sendMessage(chatId, message);
+    this.sendMessage(chatId, message, 10000);
   }
 
-  private async sendSubscribeOptions(chatId: number | string, page: number = 0) {
+  private async getTickerButtons(page: number = 0): Promise<TelegramBot.InlineKeyboardButton[][]> {
     const tickersObj = await this.tickerService.findAll();
     const tickers = tickersObj.map((x) => x.ticker);
 
-    const fullPageRow = 5;
-    const fullPageCol = 5;
+    const fullPageRow = 2;
+    const fullPageCol = 4;
     const fullPageSize = fullPageRow * fullPageCol;
     const pageSize = Math.min(tickers.length - fullPageSize * page, fullPageSize);
     const totalPage = Math.ceil(tickers.length / fullPageSize);
@@ -204,53 +254,46 @@ export class TgBotService implements OnModuleInit {
 
           return {
             text: ticker,
-            callback_data: `subscribe_${ticker}`,
+            callback_data: `subscribeAlertsFor_${ticker}`,
           };
         })
         .filter((x) => x),
     );
 
-    if (tickers.length > fullPageSize * page + pageSize) {
-      inlineKeyboard.push([{ text: `Load page ${page + 2}`, callback_data: `more_${page + 1}` }]);
+    const navigationButtons = [];
+    if (page > 0) {
+      navigationButtons.unshift({ text: '<<', callback_data: `loadSubscribePageNo_${page - 1}` });
     }
+    if (tickers.length > fullPageSize * page + pageSize) {
+      navigationButtons.push({ text: `>>`, callback_data: `loadSubscribePageNo_${page + 1}` });
+    }
+    inlineKeyboard.push(navigationButtons);
 
+    return inlineKeyboard;
+  }
+
+  public async sendMessage(
+    chatId: number | string,
+    text: string,
+    deletionTimerMs: number = -1,
+    buttons: TelegramBot.InlineKeyboardButton[][] = [],
+  ): Promise<TelegramBot.Message> {
     const options: TelegramBot.SendMessageOptions = {
       reply_markup: {
-        inline_keyboard: inlineKeyboard,
+        inline_keyboard: buttons,
       },
     };
 
-    await this.bot.sendMessage(chatId, `Please choose ticker. (Page ${page + 1}/${totalPage})`, options);
-  }
-  private sendWelcomeMessage(chatId: number) {
-    const welcomeMessage = `
-    Welcome to the NEPSE Alert Bot!
-    You can use the following commands:
-    /list_subscriptions - List all your subscriptions
-    /subscribe - Subscribe to a new ticker
-    /unsubscribe - Unsubscribe from a ticker
-    /help - Show this help message
-      `;
-    this.sendMessage(chatId, welcomeMessage);
+    const res = await this.bot.sendMessage(chatId, text, options);
+    await this.deleteMessage(chatId, res.message_id, deletionTimerMs);
+    return res;
   }
 
-  private sendHelpMessage(chatId: number) {
-    const helpMessage = `
-    Here are the available commands:
-    ${this.sendCommandDocs(chatId, Object.values(BotCommands))}
-      `;
-    this.sendMessage(chatId, helpMessage);
-  }
-
-  private sendCommandDocs(chatId: number, commandNames: BotCommands[]) {
-    const message = commandNames
-      .map((cmd) => `/${cmd} ${this.commands.find((x) => cmd === x.command)?.description}`)
-      .join('\n');
-    this.sendMessage(chatId, message);
-  }
-
-  public async sendMessage(chatId: number | string, text: string) {
-    return this.bot.sendMessage(chatId, text);
+  public async deleteMessage(chatId: number | string, messageId: number, timeoutMs: number = 0): Promise<void> {
+    if (timeoutMs <= 0) {
+      return;
+    }
+    setTimeout(() => this.bot.deleteMessage(chatId, messageId), timeoutMs);
   }
 
   private getRange(n: number): number[] {

@@ -9,7 +9,6 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionsFilter());
   app.setGlobalPrefix('api/v1');
 
-
   const config = new DocumentBuilder()
     .setTitle('NepseWatcher API documentation')
     .setDescription('API documentation for the NepseWatcher telegram bot.')
@@ -23,7 +22,7 @@ async function bootstrap() {
   SwaggerModule.setup('api-docs', app, document);
 
   await app.listen(3001);
-  
+
   Logger.log(`Server running on http://localhost:3001/api/v1`, 'Bootstrap');
   Logger.log(`Swagger documentation available at http://localhost:3001/api-docs`, 'Bootstrap');
 }

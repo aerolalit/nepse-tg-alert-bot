@@ -34,7 +34,8 @@ export class TickerSubscriptionService {
   }
 
   public async getChatIds(): Promise<string[]> {
-    return this.tickerSubscriptionRepository.createQueryBuilder()
+    return this.tickerSubscriptionRepository
+      .createQueryBuilder()
       .select('"chatId"')
       .distinct(true)
       .getRawMany()

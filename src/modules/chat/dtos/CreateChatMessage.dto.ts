@@ -1,6 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import { ChatMessageType } from '../enums/ChatMessageType.enum';
 
 export class CreateChatMessageDto {
   @ApiPropertyOptional()
@@ -17,7 +18,7 @@ export class CreateChatMessageDto {
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  public type: string;
+  public type: ChatMessageType;
 
   @ApiProperty()
   @IsNotEmpty()

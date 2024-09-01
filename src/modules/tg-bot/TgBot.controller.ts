@@ -7,7 +7,10 @@ import { ApiTags } from '@nestjs/swagger';
 @ApiTags('Telegram Bot')
 @Controller('tg-bot')
 export class TgBotController {
-  constructor(private readonly tgBotService: TgBotService, private readonly subscriptionService:TickerSubscriptionService) {}
+  constructor(
+    private readonly tgBotService: TgBotService,
+    private readonly subscriptionService: TickerSubscriptionService,
+  ) {}
 
   @Post('broadcast-message')
   public async sendMessage(@Body() sendMessageDto: SendMessageDto): Promise<any> {
@@ -15,7 +18,6 @@ export class TgBotController {
     for (const chatId of await this.subscriptionService.getChatIds()) {
       await this.tgBotService.sendMessage(chatId, message);
     }
-    return {success: true};
+    return { success: true };
   }
 }
-

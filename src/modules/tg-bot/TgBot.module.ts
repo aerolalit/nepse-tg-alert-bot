@@ -9,6 +9,6 @@ import { ChatMessageModule } from '../chat/ChatMessage.module';
   imports: [CoreModule, TickerPriceModule, ChatMessageModule],
   providers: [TgBotService],
   exports: [TgBotService],
-  controllers:[TgBotController]
+  controllers: [TgBotController],
 })
 export class TgBotModule {}

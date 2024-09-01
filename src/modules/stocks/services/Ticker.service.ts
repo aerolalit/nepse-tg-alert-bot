@@ -12,7 +12,7 @@ export class TickerService {
   ) {}
 
   public async findAll(): Promise<Ticker[]> {
-    return this.repo.find({order: {ticker: 'ASC'}});
+    return this.repo.find({ order: { ticker: 'ASC' } });
   }
 
   public async count(): Promise<number> {

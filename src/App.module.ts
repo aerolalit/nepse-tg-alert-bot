@@ -38,7 +38,7 @@ import { ChatMessageModule } from './modules/chat/ChatMessage.module';
     TgBotModule,
     AlertLogModule,
     CronModule,
-    ChatMessageModule
+    ChatMessageModule,
   ],
   providers: [PriceFetchCron],
 })
