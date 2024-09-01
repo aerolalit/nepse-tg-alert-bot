@@ -141,7 +141,9 @@ export class TgBotService implements OnModuleInit {
   }
 
   private async handleCallbackQuery(callbackQuery: TelegramBot.CallbackQuery) {
+    
     const chatId = callbackQuery.message?.chat.id as TelegramBot.ChatId;
+
     const messageId = callbackQuery.message?.message_id as number;
     const data = callbackQuery.data;
 
@@ -155,17 +157,22 @@ export class TgBotService implements OnModuleInit {
 
       switch (commandData[0]) {
         case 'subscribeNewAlert':
-          newButtons = await this.getTickerButtons();
+          newButtons = await this.getTickerButtons(chatId);
           newMessage = 'Click on the ticker to subscribe:';
           menuButton = true;
           break;
         case 'listSubscriptions':
           await this.listSubscriptions(chatId);
           return;
+        case 'unsubscribeAlertsFor':
         case 'unsubscribeTicker':
           const tickerToUnsubscribe = commandData[1];
+          const page1 = parseInt(commandData[2], 10);
           await this.subscriptionService.deleteSubscription(chatId.toString(), tickerToUnsubscribe);
           await this.sendMessage(chatId, `Unsubscribed from ${tickerToUnsubscribe}`, 10000);
+          newButtons = await this.getTickerButtons(chatId, page1);
+          newMessage = 'Choose an option:';
+          break;
         case 'unsubscribeAlert':
           newMessage = 'Click on the ticker to unsubscribe:';
           newButtons = await this.getUnsubscribeButtons(chatId);
@@ -174,14 +181,18 @@ export class TgBotService implements OnModuleInit {
         case 'loadSubscribePageNo':
           newMessage = `Click on the ticker to subscribe:`;
           const pageNo = parseInt(commandData[1], 10);
-          newButtons = await this.getTickerButtons(pageNo);
+          newButtons = await this.getTickerButtons(chatId, pageNo);
           menuButton = true;
           break;
         case 'subscribeAlertsFor':
           const ticker = commandData[1];
+          const page = parseInt(commandData[2], 10);
+
           await this.subscribeForAlerts(chatId, ticker);
           newMessage = `Subscribed alerts for ${ticker}`;
-          return this.sendMessage(chatId, newMessage, 10000);
+          newButtons = await this.getTickerButtons(chatId, page);
+          this.sendMessage(chatId, newMessage, 10000);
+          break;
         case 'loadMenu':
           newButtons = this.getMenuButtons();
           newMessage = 'Choose an option:';
@@ -257,12 +268,14 @@ export class TgBotService implements OnModuleInit {
     this.sendMessage(chatId, message, 10000);
   }
 
-  private async getTickerButtons(page: number = 0): Promise<TelegramBot.InlineKeyboardButton[][]> {
+  private async getTickerButtons(chatId: TelegramBot.ChatId, page: number = 0): Promise<TelegramBot.InlineKeyboardButton[][]> {
     const tickersObj = await this.tickerService.findAll();
+    const subs = await this.subscriptionService.listSubscriptionsByChatId(chatId.toString());
+  
     const tickers = tickersObj.map((x) => x.ticker);
 
-    const fullPageRow = 2;
-    const fullPageCol = 4;
+    const fullPageRow = 5;
+    const fullPageCol = 3;
     const fullPageSize = fullPageRow * fullPageCol;
     const pageSize = Math.min(tickers.length - fullPageSize * page, fullPageSize);
     const totalPage = Math.ceil(tickers.length / fullPageSize);
@@ -277,10 +290,10 @@ export class TgBotService implements OnModuleInit {
         .map((col) => {
           const index = row * pageCol + col;
           const ticker = tickersPage[index];
-
+          const isSubscribed = subs.some((s) => s.ticker === ticker);
           return {
-            text: ticker,
-            callback_data: `subscribeAlertsFor_${ticker}`,
+            text: (isSubscribed ? '✅': '') + ticker,
+            callback_data: (isSubscribed? 'un': '') +`subscribeAlertsFor_${ticker}_${page}`,
           };
         })
         .filter((x) => x),
