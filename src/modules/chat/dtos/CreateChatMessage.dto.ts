@@ -8,7 +8,7 @@ export class CreateChatMessageDto {
   @IsNotEmpty()
   @IsString()
   public chatId: string;
-  
+
   @ApiProperty()
   @IsNotEmpty()
   @IsString()

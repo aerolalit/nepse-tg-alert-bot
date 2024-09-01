@@ -7,6 +7,8 @@ import { TickerService } from '../stocks/services/Ticker.service';
 import { ChatMessageService } from '../chat/ChatMessage.service';
 import { CreateChatMessageDto } from '../chat/dtos/CreateChatMessage.dto';
 import { ChatMessageType } from '../chat/enums/ChatMessageType.enum';
+import { UserService } from '../users/User.service';
+import { v4 as uuid } from 'uuid';
 
 enum BotCommands {
   start = 'start',
@@ -30,6 +32,7 @@ export class TgBotService implements OnModuleInit {
     private readonly subscriptionService: TickerSubscriptionService,
     private readonly tickerService: TickerService,
     private readonly chatMessageService: ChatMessageService,
+    private readonly userService: UserService,
   ) {}
 
   public onModuleInit() {
@@ -49,37 +52,59 @@ export class TgBotService implements OnModuleInit {
     const chatMessage: CreateChatMessageDto = {
       chatId: chatId.toString(),
       id: msg.message_id.toString(),
-      senderId: chatId.toString(),
+      senderId: msg.from?.id.toString() || 'UNKNOWN',
       type: ChatMessageType.Text,
       message: text,
     };
+    let saveMessage = false;
 
     if (msg.reply_to_message && msg.reply_to_message.text) {
       switch (msg.reply_to_message.text) {
         case BotMessages.RequestTicker:
           chatMessage.type = ChatMessageType.TickerRequest;
-          await this.chatMessageService.create(chatMessage);
-          await this.bot.sendMessage(chatId, 'Ticker request received. We will notify you when it is added.', {reply_to_message_id: msg.message_id});
+          saveMessage = true;
+          await this.bot.sendMessage(chatId, 'Ticker request received. We will notify you when it is added.', {
+            reply_to_message_id: msg.message_id,
+          });
           break;
         case BotMessages.RequestFeature:
           chatMessage.type = ChatMessageType.FeatureRequest;
-          await this.chatMessageService.create(chatMessage);
-          await this.bot.sendMessage(chatId, 'Feature request received. We will notify you when it is added.', {reply_to_message_id: msg.message_id});
+          saveMessage = true;
+          await this.bot.sendMessage(chatId, 'Feature request received. We will notify you when it is added.', {
+            reply_to_message_id: msg.message_id,
+          });
           break;
         case BotMessages.Feedback:
           chatMessage.type = ChatMessageType.Feedback;
-          await this.chatMessageService.create(chatMessage);
-          await this.bot.sendMessage(chatId, 'Feedback received. Thank you for your feedback.', {reply_to_message_id: msg.message_id});
+          saveMessage = true;
+          await this.bot.sendMessage(chatId, 'Feedback received. Thank you for your feedback.', {
+            reply_to_message_id: msg.message_id,
+          });
           break;
       }
-      return;
     }
 
     switch (text) {
       case '/start':
         await this.sendMenuMessage(chatId);
         break;
+      default:
+        saveMessage = true;
     }
+
+    const from = msg.from;
+    if (from) {
+      await this.userService.createUser({
+        id: from.id.toString() || uuid(),
+        username: from.username,
+        isBot: from.is_bot,
+        firstName: from.first_name,
+        languageCode: from.language_code,
+        updatedAt: new Date(),
+      });
+    }
+
+    saveMessage && await this.chatMessageService.create(chatMessage);
   }
 
   public async sendPriceAlert(
@@ -105,7 +130,7 @@ export class TgBotService implements OnModuleInit {
       [{ text: 'Subscribe new alerts', callback_data: 'subscribeNewAlert' }],
       [{ text: 'Unsubscribe', callback_data: 'unsubscribeAlert' }],
       [{ text: 'List all Subscription', callback_data: 'listSubscriptions' }],
-      [{ text: 'Feedback / Feature Request', callback_data: 'feedbackAndRequest'}]
+      [{ text: 'Feedback / Feature Request', callback_data: 'feedbackAndRequest' }],
     ];
   }
 
@@ -171,11 +196,11 @@ export class TgBotService implements OnModuleInit {
           ];
           newMessage = 'Choose an option:';
           break;
-        
+
         case 'reqeustNewTicker':
-            await this.bot.sendMessage(chatId, BotMessages.RequestTicker, {
-              reply_markup: { force_reply: true },
-            });
+          await this.bot.sendMessage(chatId, BotMessages.RequestTicker, {
+            reply_markup: { force_reply: true },
+          });
           return;
         case 'reqeustNewFeature':
           await this.bot.sendMessage(chatId, BotMessages.RequestFeature, { reply_markup: { force_reply: true } });
@@ -192,7 +217,7 @@ export class TgBotService implements OnModuleInit {
     }
   }
   private get menuBackButton(): TelegramBot.InlineKeyboardButton[] {
-    return [{ text: '🔙', callback_data: 'loadMenu' }]
+    return [{ text: '🔙', callback_data: 'loadMenu' }];
   }
 
   private async editMessageText(
