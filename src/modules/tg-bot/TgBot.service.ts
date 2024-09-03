@@ -110,7 +110,7 @@ export class TgBotService implements OnModuleInit {
       });
     }
     await this.chatService.createChat({
-      name: msg.chat.username || msg.chat.title,
+      name: msg.chat.username || msg.chat.title || 'UNKNOWN',
       id: msg.chat.id.toString(),
       type: msg.chat.type,
     });
@@ -153,6 +153,18 @@ export class TgBotService implements OnModuleInit {
     const message = 'Choose an option:';
     const buttons = this.getMenuButtons();
     await this.sendMessage(chatId, message, -1, buttons);
+  }
+
+  public async sendTableMessage(chatId: TelegramBot.ChatId, message:string, tableData: string[][]) {
+    let tableMessage = '```\n';
+    message.length && (tableMessage += message + '\n\n');
+
+    tableData.forEach((row) => {
+      tableMessage += row.map((cell) => cell.padEnd(6)).join(' ') + '\n';
+    });
+    tableMessage += '```';
+
+    await this.bot.sendMessage(chatId, tableMessage, { parse_mode: 'Markdown' });
   }
 
   private async handleCallbackQuery(callbackQuery: TelegramBot.CallbackQuery) {

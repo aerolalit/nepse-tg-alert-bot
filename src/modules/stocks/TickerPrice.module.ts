@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TickerPrice } from './entities/TickerPrice.entity';
-import { TickerPriceService } from './services/TtockPrice.service';
+import { TickerPriceService } from './services/TickerPrice.service';
 import { Ticker } from './entities/Ticker.entity';
 import { TickerService } from './services/Ticker.service';
 import { TickerSubscription } from './entities/TickerSubscription.entity';

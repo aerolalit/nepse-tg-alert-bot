@@ -3,7 +3,7 @@ import { Cron } from '@nestjs/schedule';
 import { UserBotService } from '../user-bot/UserBot.service';
 import { TickerService } from '../stocks/services/Ticker.service';
 import { Ticker } from '../stocks/entities/Ticker.entity';
-import { TickerPriceService } from '../stocks/services/TtockPrice.service';
+import { TickerPriceService } from '../stocks/services/TickerPrice.service';
 
 @Injectable()
 export class PriceFetchCron {

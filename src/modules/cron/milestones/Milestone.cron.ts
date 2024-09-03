@@ -2,8 +2,8 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
 import { MilestoneAlert } from 'src/modules/notification-log/entities/MilestoneAlert.entity';
 import { MilestoneAlertService } from 'src/modules/notification-log/services/MilestoneAlert.service';
+import { TickerPriceService } from 'src/modules/stocks/services/TickerPrice.service';
 import { TickerSubscriptionService } from 'src/modules/stocks/services/TickerSubscription.service';
-import { TickerPriceService } from 'src/modules/stocks/services/TtockPrice.service';
 import { TgBotService } from 'src/modules/tg-bot/TgBot.service';
 
 @Injectable()
@@ -28,7 +28,7 @@ export class MilestoneCron {
       const tickerPrice = await this.tickerPriceService.getLatestTickerPrice(ticker);
 
       const diff = Math.abs(tickerPrice.createdAt.getTime() - lastMilestoneAlert.createdAt.getTime());
-      const COOLDOWN_TIME_MS = 7 * 60 * 1000; // 7 minutes
+      const COOLDOWN_TIME_MS = 15 * 60 * 1000; // 7 minutes
 
       const isUnderCooldown = diff < COOLDOWN_TIME_MS;
 

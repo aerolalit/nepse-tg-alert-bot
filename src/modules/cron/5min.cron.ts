@@ -3,7 +3,7 @@ import { BasePriceAlertService } from './BasePriceAlert.service';
 import { Cron } from '@nestjs/schedule';
 import { TgBotService } from '../tg-bot/TgBot.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
-import { TickerPriceService } from '../stocks/services/TtockPrice.service';
+import { TickerPriceService } from '../stocks/services/TickerPrice.service';
 import moment from 'moment-timezone';
 import { AlertLogService } from '../notification-log/AlertLog.service';
 

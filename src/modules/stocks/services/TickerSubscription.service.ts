@@ -29,6 +29,15 @@ export class TickerSubscriptionService {
     this.logger.log(`Deleted subscription for ${chatId} to ${ticker}`);
   }
 
+  public async getAllUniqueChatIds(): Promise<string[]> {
+    const subscriptions = await this.tickerSubscriptionRepository
+      .createQueryBuilder('subscription')
+      .select('DISTINCT subscription."chatId"')
+      .getRawMany();
+    console.log(subscriptions);
+    return subscriptions.map((sub) => sub.chatId);
+  }
+
   public async listSubscriptionsByChatId(chatId: string): Promise<TickerSubscription[]> {
     return this.tickerSubscriptionRepository.find({ where: { chatId } });
   }

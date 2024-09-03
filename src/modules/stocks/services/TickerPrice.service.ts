@@ -29,6 +29,29 @@ export class TickerPriceService {
       .then((tickers) => tickers.map(({ ticker }) => ticker));
   }
 
+  public async getPriceDataCountForDate(date: Date): Promise<number> {
+    const start = new Date(date.setHours(6, 0, 0, 0));
+    const end = new Date(date.setHours(18, 0, 0, 0));
+    return this.tickerPriceRepository.count({ where: { priceTime: Between(start, end) } });
+  }
+
+  public async getOpeningPriceForDate(ticker: string, date: Date): Promise<TickerPrice | null> {
+    const start = new Date(date.setHours(6, 0, 0, 0));
+    const end = new Date(date.setHours(18, 0, 0, 0));
+    return this.tickerPriceRepository.findOne({
+      where: { ticker, priceTime: Between(start, end) },
+      order: { priceTime: 'ASC' },
+    });
+  }
+
+  public async getClosingPriceForDate(ticker: string, date: Date): Promise<TickerPrice | null> {
+    const start = new Date(date.setHours(6, 0, 0, 0));
+    const end = new Date(date.setHours(18, 0, 0, 0));
+    return this.tickerPriceRepository.findOne({
+      where: { ticker, priceTime: Between(start, end) },
+      order: { priceTime: 'DESC' },
+    });
+  }
   // get all pricess between two dates for ticker
   public async getPrices(ticker: string, startDate: Date, endDate: Date): Promise<TickerPrice[]> {
     return this.tickerPriceRepository.find({

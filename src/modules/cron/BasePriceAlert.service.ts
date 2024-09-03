@@ -2,7 +2,7 @@ import { TickerPrice } from '../stocks/entities/TickerPrice.entity';
 import { Injectable } from '@nestjs/common';
 import { AlertLog } from '../notification-log/entities/AlertLog.entity';
 import { TgBotService } from '../tg-bot/TgBot.service';
-import { TickerPriceService } from '../stocks/services/TtockPrice.service';
+import { TickerPriceService } from '../stocks/services/TickerPrice.service';
 import { TickerSubscriptionService } from '../stocks/services/TickerSubscription.service';
 import { AlertLogService } from '../notification-log/AlertLog.service';
 import * as moment from 'moment-timezone';
