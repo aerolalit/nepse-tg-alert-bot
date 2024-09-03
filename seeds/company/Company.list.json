@@ -1,0 +1,1962 @@
+[
+  {
+    "name": "Nabil Bank Limited",
+    "ticker": "NABIL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Standard Chartered Bank Nepal Limited",
+    "ticker": "SCB",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal SBI Bank Limited",
+    "ticker": "SBI",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Everest Bank Limited",
+    "ticker": "EBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Siddhartha Bank Limited",
+    "ticker": "SBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Butwal Power Company Limited",
+    "ticker": "BPCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Chilime Hydropower Company Limited",
+    "ticker": "CHCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Insurance Co. Ltd.",
+    "ticker": "NICL",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Chhimek Laghubitta Bittiya Sanstha Limited",
+    "ticker": "CBBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Sanima Bank Limited",
+    "ticker": "SANIMA",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Distillery Limited",
+    "ticker": "HDL",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "ICFC Finance Limited",
+    "ticker": "ICFC",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Doorsanchar Company Limited",
+    "ticker": "NTC",
+    "status": "Active",
+    "sector": "Others",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Global IME Bank Limited",
+    "ticker": "GBIME",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Citizens Bank International Limited",
+    "ticker": "CZBIL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Miteri Development Bank Limited",
+    "ticker": "MDB",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Lumbini Bikas Bank Ltd.",
+    "ticker": "LBBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Mahalaxmi Bikas Bank Ltd.",
+    "ticker": "MLBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "SHANGRI-LA DEVELOPMENT BANK LIMITED",
+    "ticker": "SADBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "SHINE RESUNGA DEVELOPMENT BANK LTD",
+    "ticker": "SHINE",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Muktinath Bikas Bank Ltd.",
+    "ticker": "MNBBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "First Micro Finance Laghubitta Bittiya Sanstha Limited",
+    "ticker": "FMDBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Garima Bikas Bank Limited",
+    "ticker": "GBBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Sana Kisan Bikas Laghubitta Bittiya Sanstha Limited",
+    "ticker": "SKBBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Sanima Mai Hydropower Limited",
+    "ticker": "SHPC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Hydorelectricity Investment and Development Company Ltd",
+    "ticker": "HIDCL",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Swabhumaan Laghubitta Bittiya Sanstha Ltd",
+    "ticker": "SMFBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Shivam Cements Limited",
+    "ticker": "SHIVM",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Infrastructure Bank Limited",
+    "ticker": "NIFRA",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Jeevan Bikas Laghubitta Bittiya Sanstha Ltd",
+    "ticker": "JBLB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "NIC ASIA Laghubitta Bittiya Sanstha Limited",
+    "ticker": "NICLBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "A",
+    "type": "Equity"
+  },
+  {
+    "name": "Universal Power Company Limited",
+    "ticker": "UPCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Mountain Hydro Nepal Limited",
+    "ticker": "MHNL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Union Hydropower Limited",
+    "ticker": "UNHPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "NRN Infrastructure and Development Limited",
+    "ticker": "NRN",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "RSDC Laghubitta Bittiya Sanstha Ltd.",
+    "ticker": "RSDC",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Arun Kabeli Power Ltd.",
+    "ticker": "AKPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Radhi Bidyut Company Ltd",
+    "ticker": "RADHI",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Kalika power Company Ltd",
+    "ticker": "KPCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Ankhu Khola Jalvidhyut Company Limited",
+    "ticker": "AKJCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Ngadi Group Power Ltd.",
+    "ticker": "NGPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "API POWER COMPANY LIMITED",
+    "ticker": "API",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Global IME Laghubitta Bittiya Sanstha Ltd.",
+    "ticker": "GILB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Synergy Power Development Ltd.",
+    "ticker": "SPDL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Ridi Power Company Limited",
+    "ticker": "RIDI",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Barun Hydropower Co. Ltd.",
+    "ticker": "BARUN",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Kamana Sewa Bikas Bank Limited",
+    "ticker": "KSBBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Jyoti Bikas Bank Limited",
+    "ticker": "JBBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Manjushree Finance Ltd.",
+    "ticker": "MFIL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Bank Limited",
+    "ticker": "NBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Arun Valley Hydropower Development Co. Ltd.",
+    "ticker": "AHPC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Prime Commercial Bank Ltd.",
+    "ticker": "PCBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Samriddhi Finance Company Limited",
+    "ticker": "SFCL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Guheswori Merchant Banking & Finance Ltd.",
+    "ticker": "GMFIL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Pokhara Finance Ltd.",
+    "ticker": "PFL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "NMB Bank Limited",
+    "ticker": "NMB",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Shree Investment Finance Co. Ltd.",
+    "ticker": "SIFC",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Finance Ltd.",
+    "ticker": "NFS",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Soaltee Hotel Limited",
+    "ticker": "SHL",
+    "status": "Active",
+    "sector": "Hotels And Tourism",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Taragaon Regency Hotel Limited",
+    "ticker": "TRH",
+    "status": "Active",
+    "sector": "Hotels And Tourism",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Oriental Hotels Limited",
+    "ticker": "OHL",
+    "status": "Active",
+    "sector": "Hotels And Tourism",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "National Hydro Power Company Limited",
+    "ticker": "NHPC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "NIC Asia Bank Ltd.",
+    "ticker": "NICA",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Machhapuchhre Bank Limited",
+    "ticker": "MBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Laxmi Sunrise Bank Limited",
+    "ticker": "LSL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Bank Limited",
+    "ticker": "HBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "B",
+    "type": "Equity"
+  },
+  {
+    "name": "Buddha bhumi nepal hydro power company limited",
+    "ticker": "BNHC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Emerging nepal limited",
+    "ticker": "ENL",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "NESDO Sambridha Laghubitta Bittiya Sanstha Limited",
+    "ticker": "NESDO",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Green Ventures Limited",
+    "ticker": "GVL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Balephi Hydropower Limited",
+    "ticker": "BHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Upakar Laghubitta Bittiya Sanstha Limited",
+    "ticker": "ULBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "CYC Nepal laghubitta Bittiya Sanstha Limited",
+    "ticker": "CYCL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "River Falls power Limited",
+    "ticker": "RFPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Dordi Khola Jal Bidyut Company limited",
+    "ticker": "DORDI",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Bindhyabasini Hydropower Development Company Limited",
+    "ticker": "BHDC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Hydropower Limited",
+    "ticker": "HHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Upper Hewakhola Hydropower company Limited",
+    "ticker": "UHEWA",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Swet-Ganga Hydropower and Construction Limited",
+    "ticker": "SGHC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Mandakini Hydropower Limited",
+    "ticker": "MHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Upper solu Electric company Limited",
+    "ticker": "USHEC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Rapti Hydro and General Construction Limited",
+    "ticker": "RHGCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Aviyan laghubittya bittiya sanstha limited",
+    "ticker": "AVYAN",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Sayapatri Hydropower Limited",
+    "ticker": "SPHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Peoples Power Limited",
+    "ticker": "PPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Dhaulagiri laghubitta Sanstha Limited",
+    "ticker": "DLBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Sikles Hydropower Limited",
+    "ticker": "SIKLES",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Eastern Hydropower Limited",
+    "ticker": "EHPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Shrijanshil Laghubitta Baittiya sanstha Limited",
+    "ticker": "SHLB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Peoples Hydropower Company Limited",
+    "ticker": "PHCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Barahi Hydropower Public Limited",
+    "ticker": "BHPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Unique Nepal Laghubitta Bittiya Sanstha Limited",
+    "ticker": "UNLB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Super Madi Hydropower Limited",
+    "ticker": "SMHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "SHUVAM POWER LIMITED",
+    "ticker": "SPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Supermai Hydropower Limited",
+    "ticker": "SMH",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Maya Khola Hydropower Company Limited",
+    "ticker": "MKHC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Asian Hydropower Limited",
+    "ticker": "AHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "KALINCHOWK DARSHAN LIMITED",
+    "ticker": "KDL",
+    "status": "Active",
+    "sector": "Hotels And Tourism",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Sanima Middle Tamor Hydropower Limited",
+    "ticker": "TAMOR",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Molung Hydropower Company Limited",
+    "ticker": "MHCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Sagarmatha Jalabidhyut Company Limited",
+    "ticker": "SMJC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Aatmanirbhar Laghubitta Bittitya Sanstha Limited",
+    "ticker": "ANLB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Makar Jitumaya Suri Hydropower Ltd",
+    "ticker": "MAKAR",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "MaiKhola Hydropower Limited",
+    "ticker": "MKHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Dolti Power Company Ltd.",
+    "ticker": "DOLTI",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Bhugol Energy Development Company Ltd",
+    "ticker": "BEDC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "CITY HOTEL LIMITED",
+    "ticker": "CITY",
+    "status": "Active",
+    "sector": "Hotels And Tourism",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Menchhiyam Hydro Power Ltd",
+    "ticker": "MCHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Ingwa Hydropower Limited",
+    "ticker": "IHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Modi Energy Limited",
+    "ticker": "MEL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Rawa Energy Development Ltd.",
+    "ticker": "RAWA",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Republic Media Ltd",
+    "ticker": "NRM",
+    "status": "Active",
+    "sector": "Others",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "I.M.E. Life Insurance company Limited",
+    "ticker": "ILI",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Upper Syange Hydropower Limited",
+    "ticker": "USHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Ghorahi Cement Industry Limited",
+    "ticker": "GCIL",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Three Star Hydropower Ltd",
+    "ticker": "TSHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Kutheli Bukhari Small Hydropower Ltd",
+    "ticker": "KBSH",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Reliable Nepal Life Insurance Ltd",
+    "ticker": "RNLI",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Sun Nepal Life Insurance Company Limited",
+    "ticker": "SNLI",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Manakamana Engineering Hydropower Limited",
+    "ticker": "MEHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Upper Lohore Khola Hydropower Company Limited",
+    "ticker": "ULHC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Citizen Life Insurance Company Limited",
+    "ticker": "CLI",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Mandu Hydropower Limited",
+    "ticker": "MANDU",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "HATHWAY INVESTMENT NEPAL LIMITED",
+    "ticker": "HATHY",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Bhagawati Hyropower Development Company Ltd.",
+    "ticker": "BGWT",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Mid solu Hydropower Limited",
+    "ticker": "MSHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Sonapur Minerals And Oil Limited",
+    "ticker": "SONA",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Mathillo Mailun Khola Jalvidhyut Ltd.",
+    "ticker": "MMKJL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Trishuli Jal Vidhyut Company Limited",
+    "ticker": "TVCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Vision Lumbini Urja Company Limited",
+    "ticker": "VLUCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Muktinath Krishi Company Limited",
+    "ticker": "MKCL",
+    "status": "Active",
+    "sector": "Others",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Chirkhwa Hydropower Limited",
+    "ticker": "CKHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Warehousing Company Limited",
+    "ticker": "NWCL",
+    "status": "Active",
+    "sector": "Others",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Reinsurance Limited",
+    "ticker": "HRL",
+    "status": "Active",
+    "sector": "Others",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Sarbottam Cement Limited",
+    "ticker": "SARBTM",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "G",
+    "type": "Equity"
+  },
+  {
+    "name": "Panchthar Power Company Ltd",
+    "ticker": "PPCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Ganapati Laghubitta Bittiya Sanstha Ltd",
+    "ticker": "GMFBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalaya Urja Bikas Company Limited",
+    "ticker": "HURJA",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Gurans Laghubitta Bittiya Sanstha Ltd",
+    "ticker": "GLBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Greenlife Hydropower Limited",
+    "ticker": "GLH",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Mahila Laghubitta Bittiya Sanstha Ltd",
+    "ticker": "MLBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Singati Hydro Energy Ltd",
+    "ticker": "SHEL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Ru Ru Jalbidhyut Pariyojana Limited",
+    "ticker": "RURU",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "CEDB Hydropower Development Company Limited",
+    "ticker": "CHDC",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Samaj Laghubitta Bittiya Sanstha Ltd",
+    "ticker": "SAMAJ",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Sanima Reliance Life Insurance Limited",
+    "ticker": "SRLI",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Mailung Khola Jal Vidhyut Company Limited",
+    "ticker": "MKJC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Manushi Laghubitta Bittiya Sanstha Limited",
+    "ticker": "MLBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Sahas Urja Limited",
+    "ticker": "SAHAS",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Terhathum Power Company Limited",
+    "ticker": "TPC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Samling power company limited",
+    "ticker": "SPC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nyadi hydropower limited",
+    "ticker": "NYADI",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Madhya Bhotekoshi Jalavidyut Company Limited",
+    "ticker": "MBJC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Sampada Laghubitta Bittiya Sanstha Limited",
+    "ticker": "SMPDA",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Investment Mega Bank Limited",
+    "ticker": "NIMB",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Kumari Bank Limited",
+    "ticker": "KBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Salt Trading Corporation",
+    "ticker": "STC",
+    "status": "Active",
+    "sector": "Tradings",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Bishal Bazar Company Limited",
+    "ticker": "BBC",
+    "status": "Active",
+    "sector": "Tradings",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nirdhan Utthan Laghubitta Bittiya Sanstha Limited",
+    "ticker": "NUBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Bottlers Nepal (Balaju) Limited",
+    "ticker": "BNL",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Lube Oil Limited",
+    "ticker": "NLO",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Gurkhas Finance Ltd.",
+    "ticker": "GUFL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Citizen Investment Trust",
+    "ticker": "CIT",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Bottlers Nepal (Terai) Limited",
+    "ticker": "BNT",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Unilever Nepal Limited",
+    "ticker": "UNL",
+    "status": "Active",
+    "sector": "Manufacturing And Processing",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Best Finance Company Ltd.",
+    "ticker": "BFC",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Goodwill Finance Limited",
+    "ticker": "GFCL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Rastriya Beema Company Limited",
+    "ticker": "RBCL",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "National Life Insurance Co. Ltd.",
+    "ticker": "NLICL",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Everest Insurance Limited",
+    "ticker": "HEI",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "United Ajod Insurance Limited",
+    "ticker": "UAIL",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Siddhartha Premier Insurance Limited",
+    "ticker": "SPIL",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Neco Insurance Limited",
+    "ticker": "NIL",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Prabhu Insurance Ltd.",
+    "ticker": "PRIN",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Sagarmatha Lumbini Insurance Co. Limited",
+    "ticker": "SALICO",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "IGI Prudential Insurance Limited",
+    "ticker": "IGI",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Life Insurance Co. Ltd.",
+    "ticker": "NLIC",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Life Insurance Corporation (Nepal) Limited",
+    "ticker": "LICN",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Shikhar Insurance Co. Ltd.",
+    "ticker": "SICL",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Central Finance Co. Ltd.",
+    "ticker": "CFCL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Janaki Finance Company Limited",
+    "ticker": "JFL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Prabhu Bank Limited",
+    "ticker": "PRVU",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Narayani Development Bank Limited",
+    "ticker": "NABBC",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Deprosc Laghubitta Bittiya Sanstha Limited",
+    "ticker": "DDBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Swabalamban Laghubitta Bittiya Sanstha Limited",
+    "ticker": "SWBBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Excel Development Bank Ltd.",
+    "ticker": "EDBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Progressive Finance Limited",
+    "ticker": "PROFL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "SuryaJyoti Life Insurance Company Limited",
+    "ticker": "SJLIC",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Asian Life Insurance Co Limited",
+    "ticker": "ALICL",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Life Insurance Limited",
+    "ticker": "HLI",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nerude Mirmire Laghubitta Bittiya Sanstha Limited",
+    "ticker": "NMLBBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Agricultural Development Bank Limited",
+    "ticker": "ADBL",
+    "status": "Active",
+    "sector": "Commercial Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Swarojgar Laghubitta Bittiya Sanstha Ltd.",
+    "ticker": "SLBBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "NLG Insurance Company Ltd.",
+    "ticker": "NLG",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Sindhu Bikash Bank Ltd",
+    "ticker": "SINDU",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Karnali Development Bank Limited",
+    "ticker": "KRBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Corporate Development Bank Limited",
+    "ticker": "CORBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Multipurpose Finance Company Limited",
+    "ticker": "MPFL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Grameen Bikas Laghubitta Bittiya Sanstha Ltd.",
+    "ticker": "GBLBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Reliance Finance Ltd.",
+    "ticker": "RLFL",
+    "status": "Active",
+    "sector": "Finance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Vijaya laghubitta Bittiya Sanstha Ltd.",
+    "ticker": "VLBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Laghubitta Bittiya Sanstha Limited",
+    "ticker": "HLBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Matribhumi Lagubitta Bittiya Sanstha Limited",
+    "ticker": "MATRI",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Janautthan Samudayic Laghubitta Bittya Sanstha Limited",
+    "ticker": "JSLBB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Laxmi Laghubitta Bittiya Sanstha Ltd.",
+    "ticker": "LLBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Kalika Laghubitta Bittiya Sanstha Ltd",
+    "ticker": "KMCDB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Mithila LaghuBitta Bittiya Sanstha Limited",
+    "ticker": "MLBBL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "United Modi Hydropower Ltd.",
+    "ticker": "UMHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Samata Gharelu Laghubitta Bittiya Sanstha Limited",
+    "ticker": "SMATA",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Chhyangdi Hydropower Ltd.",
+    "ticker": "CHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Himalayan Power Partner Ltd.",
+    "ticker": "HPPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Mahuli Laghubitta Bittiya Sanstha Limited",
+    "ticker": "MSLB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Hydro Developers Ltd",
+    "ticker": "NHDL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Support Lagubitta Bittiya Sanstha Limited",
+    "ticker": "SMB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Unnati Sahakarya Laghubitta Bittiya Sanstha Limited",
+    "ticker": "USLB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Suryodaya Womi Laghubitta Bittiya Sanstha Limited",
+    "ticker": "SWMF",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Mero Microfinance Bittiya Sanstha Ltd.",
+    "ticker": "MERO",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "NMB Microfinance Bittiya Sanstha Ltd.",
+    "ticker": "NMBMF",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Green Development Bank Ltd.",
+    "ticker": "GRDBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "National Laghubitta Bittiya Sanstha Limited",
+    "ticker": "NMFBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Joshi Hydropower Development Company Ltd",
+    "ticker": "JOSHI",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Aarambha Chautari Laghubitta Bittya Sanstha Limited",
+    "ticker": "ACLBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Upper Tamakoshi Hydropower Ltd",
+    "ticker": "UPPER",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Samudayik Laghubitta Bittiya Sanstha Limited",
+    "ticker": "SLBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Ghalemdi Hydro Limited",
+    "ticker": "GHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Asha Laghubitta Bittiya Sanstha Ltd.",
+    "ticker": "ALBSL",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Wean Nepal Laghubitta Bittiya Sanstha Limited",
+    "ticker": "WNLB",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nadep Laghubittiya bittya Sanstha Ltd.",
+    "ticker": "NADEP",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Panchakanya Mai Hydropower Ltd",
+    "ticker": "PMHPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Forward Microfinance Laghubitta Bittiya Sanstha Limited",
+    "ticker": "FOWAD",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Khanikhola Hydropower Co. Ltd.",
+    "ticker": "KKHC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Dibyashwori Hydropower Ltd.",
+    "ticker": "DHPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Liberty Energy Company Limited",
+    "ticker": "LEC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Shiva Shree Hydropower Limited",
+    "ticker": "SSHL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Sanima GIC Insurance Limited",
+    "ticker": "SGIC",
+    "status": "Active",
+    "sector": "Non Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Mountain Energy Nepal Limited",
+    "ticker": "MEN",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "United Idi Mardi & RB Hydropower Ltd",
+    "ticker": "UMRH",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Prabhu Mahalaxmi Life Insurance Limited",
+    "ticker": "PMLI",
+    "status": "Active",
+    "sector": "Life Insurance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Chandragiri Hills Limited",
+    "ticker": "CGH",
+    "status": "Active",
+    "sector": "Hotels And Tourism",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Infinity Laghubitta Bittiya Sastha Ltd",
+    "ticker": "ILBS",
+    "status": "Active",
+    "sector": "Microfinance",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Rasuwagadhi Hydropower Company Limited",
+    "ticker": "RHPL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "SANJEN JALAVIDHYUT COMPANY LTD",
+    "ticker": "SJCL",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Saptakoshi Development bank Ltd",
+    "ticker": "SAPDBL",
+    "status": "Active",
+    "sector": "Development Banks",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Himal Dolakha Hydropower Com. Ltd.",
+    "ticker": "HDHPC",
+    "status": "Active",
+    "sector": "Hydro Power",
+    "group": "Z",
+    "type": "Equity"
+  },
+  {
+    "name": "Nepal Reinsurance Company Limited",
+    "ticker": "NRIC",
+    "status": "Active",
+    "sector": "Others",
+    "group": "Z",
+    "type": "Equity"
+  }
+]

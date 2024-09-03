@@ -13,6 +13,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "db:seed": "node dist/seeds/index.js",
     "db:migration:create": "./node_modules/typeorm/cli.js migration:create",
     "db:migration:show": "./node_modules/typeorm/cli.js migration:show -d dist/data-source.js",
     "db:migration:run": "./node_modules/typeorm/cli.js migration:run -d dist/data-source.js",

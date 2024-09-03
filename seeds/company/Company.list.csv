@@ -1,0 +1,245 @@
+1,	Nabil Bank Limited,	NABIL,	Active,	Commercial Banks,	A,	Equity
+2,	Standard Chartered Bank Nepal Limited,	SCB,	Active,	Commercial Banks,	A,	Equity
+3,	Nepal SBI Bank Limited,	SBI,	Active,	Commercial Banks,	A,	Equity
+4,	Everest Bank Limited,	EBL,	Active,	Commercial Banks,	A,	Equity
+5,	Siddhartha Bank Limited,	SBL,	Active,	Commercial Banks,	A,	Equity
+6,	Butwal Power Company Limited,	BPCL,	Active,	Hydro Power,	A,	Equity
+7,	Chilime Hydropower Company Limited,	CHCL,	Active,	Hydro Power,	A,	Equity
+8,	Nepal Insurance Co. Ltd.,	NICL,	Active,	Non Life Insurance,	A,	Equity
+9,	Chhimek Laghubitta Bittiya Sanstha Limited,	CBBL,	Active,	Microfinance,	A,	Equity
+10,	Sanima Bank Limited,	SANIMA,	Active,	Commercial Banks,	A,	Equity
+11,	Himalayan Distillery Limited,	HDL,	Active,	Manufacturing And Processing,	A,	Equity
+12,	ICFC Finance Limited,	ICFC,	Active,	Finance,	A,	Equity
+13,	Nepal Doorsanchar Company Limited,	NTC,	Active,	Others,	A,	Equity
+14,	Global IME Bank Limited,	GBIME,	Active,	Commercial Banks,	A,	Equity
+15,	Citizens Bank International Limited,	CZBIL,	Active,	Commercial Banks,	A,	Equity
+16,	Miteri Development Bank Limited,	MDB,	Active,	Development Banks,	A,	Equity
+17,	Lumbini Bikas Bank Ltd.,	LBBL,	Active,	Development Banks,	A,	Equity
+18,	Mahalaxmi Bikas Bank Ltd.,	MLBL,	Active,	Development Banks,	A,	Equity
+19,	SHANGRI-LA DEVELOPMENT BANK LIMITED,	SADBL,	Active,	Development Banks,	A,	Equity
+20,	SHINE RESUNGA DEVELOPMENT BANK LTD,	SHINE,	Active,	Development Banks,	A,	Equity
+21,	Muktinath Bikas Bank Ltd.,	MNBBL,	Active,	Development Banks,	A,	Equity
+22,	First Micro Finance Laghubitta Bittiya Sanstha Limited,	FMDBL,	Active,	Microfinance,	A,	Equity
+23,	Garima Bikas Bank Limited,	GBBL,	Active,	Development Banks,	A,	Equity
+24,	Sana Kisan Bikas Laghubitta Bittiya Sanstha Limited,	SKBBL,	Active,	Microfinance,	A,	Equity
+25,	Sanima Mai Hydropower Limited,	SHPC,	Active,	Hydro Power,	A,	Equity
+26,	Hydorelectricity Investment and Development Company Ltd,	HIDCL,	Active,	Investment,	A,	Equity
+27,	Swabhumaan Laghubitta Bittiya Sanstha Ltd,	SMFBS,	Active,	Microfinance,	A,	Equity
+28,	Shivam Cements Limited,	SHIVM,	Active,	Manufacturing And Processing,	A,	Equity
+29,	Nepal Infrastructure Bank Limited,	NIFRA,	Active,	Investment,	A,	Equity
+30,	Jeevan Bikas Laghubitta Bittiya Sanstha Ltd,	JBLB,	Active,	Microfinance,	A,	Equity
+31,	NIC ASIA Laghubitta Bittiya Sanstha Limited,	NICLBSL,	Active,	Microfinance,	A,	Equity
+32,	Universal Power Company Limited,	UPCL,	Active,	Hydro Power,	B,	Equity
+33,	Mountain Hydro Nepal Limited,	MHNL,	Active,	Hydro Power,	B,	Equity
+34,	Union Hydropower Limited,	UNHPL,	Active,	Hydro Power,	B,	Equity
+35,	NRN Infrastructure and Development Limited,	NRN,	Active,	Investment,	B,	Equity
+36,	RSDC Laghubitta Bittiya Sanstha Ltd.,	RSDC,	Active,	Microfinance,	B,	Equity
+37,	Arun Kabeli Power Ltd.,	AKPL,	Active,	Hydro Power,	B,	Equity
+38,	Radhi Bidyut Company Ltd,	RADHI,	Active,	Hydro Power,	B,	Equity
+39,	Kalika power Company Ltd,	KPCL,	Active,	Hydro Power,	B,	Equity
+40,	Ankhu Khola Jalvidhyut Company Limited,	AKJCL,	Active,	Hydro Power,	B,	Equity
+41,	Ngadi Group Power Ltd.,	NGPL,	Active,	Hydro Power,	B,	Equity
+42,	API POWER COMPANY LIMITED,	API,	Active,	Hydro Power,	B,	Equity
+43,	Global IME Laghubitta Bittiya Sanstha Ltd.,	GILB,	Active,	Microfinance,	B,	Equity
+44,	Synergy Power Development Ltd.,	SPDL,	Active,	Hydro Power,	B,	Equity
+45,	Ridi Power Company Limited,	RIDI,	Active,	Hydro Power,	B,	Equity
+46,	Barun Hydropower Co. Ltd.,	BARUN,	Active,	Hydro Power,	B,	Equity
+47,	Kamana Sewa Bikas Bank Limited,	KSBBL,	Active,	Development Banks,	B,	Equity
+48,	Jyoti Bikas Bank Limited,	JBBL,	Active,	Development Banks,	B,	Equity
+49,	Manjushree Finance Ltd.,	MFIL,	Active,	Finance,	B,	Equity
+50,	Nepal Bank Limited,	NBL,	Active,	Commercial Banks,	B,	Equity
+51,	Arun Valley Hydropower Development Co. Ltd.,	AHPC,	Active,	Hydro Power,	B,	Equity
+52,	Prime Commercial Bank Ltd.,	PCBL,	Active,	Commercial Banks,	B,	Equity
+53,	Samriddhi Finance Company Limited,	SFCL,	Active,	Finance,	B,	Equity
+54,	Guheswori Merchant Banking & Finance Ltd.,	GMFIL,	Active,	Finance,	B,	Equity
+55,	Pokhara Finance Ltd.,	PFL,	Active,	Finance,	B,	Equity
+56,	NMB Bank Limited,	NMB,	Active,	Commercial Banks,	B,	Equity
+57,	Shree Investment Finance Co. Ltd.,	SIFC,	Active,	Finance,	B,	Equity
+58,	Nepal Finance Ltd.,	NFS,	Active,	Finance,	B,	Equity
+59,	Soaltee Hotel Limited,	SHL,	Active,	Hotels And Tourism,	B,	Equity
+60,	Taragaon Regency Hotel Limited,	TRH,	Active,	Hotels And Tourism,	B,	Equity
+61,	Oriental Hotels Limited,	OHL,	Active,	Hotels And Tourism,	B,	Equity
+62,	National Hydro Power Company Limited,	NHPC,	Active,	Hydro Power,	B,	Equity
+63,	NIC Asia Bank Ltd.,	NICA,	Active,	Commercial Banks,	B,	Equity
+64,	Machhapuchhre Bank Limited,	MBL,	Active,	Commercial Banks,	B,	Equity
+65,	Laxmi Sunrise Bank Limited,	LSL,	Active,	Commercial Banks,	B,	Equity
+66,	Himalayan Bank Limited,	HBL,	Active,	Commercial Banks,	B,	Equity
+67,	Buddha bhumi nepal hydro power company limited,	BNHC,	Active,	Hydro Power,	G,	Equity
+68,	Emerging nepal limited,	ENL,	Active,	Investment,	G,	Equity
+69,	NESDO Sambridha Laghubitta Bittiya Sanstha Limited,	NESDO,	Active,	Microfinance,	G,	Equity
+70,	Green Ventures Limited,	GVL,	Active,	Hydro Power,	G,	Equity
+71,	Balephi Hydropower Limited,	BHL,	Active,	Hydro Power,	G,	Equity
+72,	Upakar Laghubitta Bittiya Sanstha Limited,	ULBSL,	Active,	Microfinance,	G,	Equity
+73,	CYC Nepal laghubitta Bittiya Sanstha Limited,	CYCL,	Active,	Microfinance,	G,	Equity
+74,	River Falls power Limited,	RFPL,	Active,	Hydro Power,	G,	Equity
+75,	Dordi Khola Jal Bidyut Company limited,	DORDI,	Active,	Hydro Power,	G,	Equity
+76,	Bindhyabasini Hydropower Development Company Limited,	BHDC,	Active,	Hydro Power,	G,	Equity
+77,	Himalayan Hydropower Limited,	HHL,	Active,	Hydro Power,	G,	Equity
+78,	Upper Hewakhola Hydropower company Limited,	UHEWA,	Active,	Hydro Power,	G,	Equity
+79,	Swet-Ganga Hydropower and Construction Limited,	SGHC,	Active,	Hydro Power,	G,	Equity
+80,	Mandakini Hydropower Limited,	MHL,	Active,	Hydro Power,	G,	Equity
+81,	Upper solu Electric company Limited,	USHEC,	Active,	Hydro Power,	G,	Equity
+82,	Rapti Hydro and General Construction Limited,	RHGCL,	Active,	Hydro Power,	G,	Equity
+83,	Aviyan laghubittya bittiya sanstha limited,	AVYAN,	Active,	Microfinance,	G,	Equity
+84,	Sayapatri Hydropower Limited,	SPHL,	Active,	Hydro Power,	G,	Equity
+85,	Peoples Power Limited,	PPL,	Active,	Hydro Power,	G,	Equity
+86,	Dhaulagiri laghubitta Sanstha Limited,	DLBS,	Active,	Microfinance,	G,	Equity
+87,	Sikles Hydropower Limited,	SIKLES,	Active,	Hydro Power,	G,	Equity
+88,	Eastern Hydropower Limited,	EHPL,	Active,	Hydro Power,	G,	Equity
+89,	Shrijanshil Laghubitta Baittiya sanstha Limited,	SHLB,	Active,	Microfinance,	G,	Equity
+90,	Peoples Hydropower Company Limited,	PHCL,	Active,	Hydro Power,	G,	Equity
+91,	Barahi Hydropower Public Limited,	BHPL,	Active,	Hydro Power,	G,	Equity
+92,	Unique Nepal Laghubitta Bittiya Sanstha Limited,	UNLB,	Active,	Microfinance,	G,	Equity
+93,	Super Madi Hydropower Limited,	SMHL,	Active,	Hydro Power,	G,	Equity
+94,	SHUVAM POWER LIMITED,	SPL,	Active,	Hydro Power,	G,	Equity
+95,	Supermai Hydropower Limited,	SMH,	Active,	Hydro Power,	G,	Equity
+96,	Maya Khola Hydropower Company Limited,	MKHC,	Active,	Hydro Power,	G,	Equity
+97,	Asian Hydropower Limited,	AHL,	Active,	Hydro Power,	G,	Equity
+98,	KALINCHOWK DARSHAN LIMITED,	KDL,	Active,	Hotels And Tourism,	G,	Equity
+99,	Sanima Middle Tamor Hydropower Limited,	TAMOR,	Active,	Hydro Power,	G,	Equity
+100,	Molung Hydropower Company Limited,	MHCL,	Active,	Hydro Power,	G,	Equity
+101,	Sagarmatha Jalabidhyut Company Limited,	SMJC,	Active,	Hydro Power,	G,	Equity
+102,	Aatmanirbhar Laghubitta Bittitya Sanstha Limited,	ANLB,	Active,	Microfinance,	G,	Equity
+103,	Makar Jitumaya Suri Hydropower Ltd,	MAKAR,	Active,	Hydro Power,	G,	Equity
+104,	MaiKhola Hydropower Limited,	MKHL,	Active,	Hydro Power,	G,	Equity
+105,	Dolti Power Company Ltd.,	DOLTI,	Active,	Hydro Power,	G,	Equity
+106,	Bhugol Energy Development Company Ltd,	BEDC,	Active,	Hydro Power,	G,	Equity
+107,	CITY HOTEL LIMITED,	CITY,	Active,	Hotels And Tourism,	G,	Equity
+108,	Menchhiyam Hydro Power Ltd,	MCHL,	Active,	Hydro Power,	G,	Equity
+109,	Ingwa Hydropower Limited,	IHL,	Active,	Hydro Power,	G,	Equity
+110,	Modi Energy Limited,	MEL,	Active,	Hydro Power,	G,	Equity
+111,	Rawa Energy Development Ltd.,	RAWA,	Active,	Hydro Power,	G,	Equity
+112,	Nepal Republic Media Ltd,	NRM,	Active,	Others,	G,	Equity
+113,	I.M.E. Life Insurance company Limited,	ILI,	Active,	Life Insurance,	G,	Equity
+114,	Upper Syange Hydropower Limited,	USHL,	Active,	Hydro Power,	G,	Equity
+115,	Ghorahi Cement Industry Limited,	GCIL,	Active,	Manufacturing And Processing,	G,	Equity
+116,	Three Star Hydropower Ltd,	TSHL,	Active,	Hydro Power,	G,	Equity
+117,	Kutheli Bukhari Small Hydropower Ltd,	KBSH,	Active,	Hydro Power,	G,	Equity
+118,	Reliable Nepal Life Insurance Ltd,	RNLI,	Active,	Life Insurance,	G,	Equity
+119,	Sun Nepal Life Insurance Company Limited,	SNLI,	Active,	Life Insurance,	G,	Equity
+120,	Manakamana Engineering Hydropower Limited,	MEHL,	Active,	Hydro Power,	G,	Equity
+121,	Upper Lohore Khola Hydropower Company Limited,	ULHC,	Active,	Hydro Power,	G,	Equity
+122,	Citizen Life Insurance Company Limited,	CLI,	Active,	Life Insurance,	G,	Equity
+123,	Mandu Hydropower Limited,	MANDU,	Active,	Hydro Power,	G,	Equity
+124,	HATHWAY INVESTMENT NEPAL LIMITED,	HATHY,	Active,	Investment,	G,	Equity
+125,	Bhagawati Hyropower Development Company Ltd.,	BGWT,	Active,	Hydro Power,	G,	Equity
+126,	Mid solu Hydropower Limited,	MSHL,	Active,	Hydro Power,	G,	Equity
+127,	Sonapur Minerals And Oil Limited,	SONA,	Active,	Manufacturing And Processing,	G,	Equity
+128,	Mathillo Mailun Khola Jalvidhyut Ltd.,	MMKJL,	Active,	Hydro Power,	G,	Equity
+129,	Trishuli Jal Vidhyut Company Limited,	TVCL,	Active,	Hydro Power,	G,	Equity
+130,	Vision Lumbini Urja Company Limited,	VLUCL,	Active,	Hydro Power,	G,	Equity
+131,	Muktinath Krishi Company Limited,	MKCL,	Active,	Others,	G,	Equity
+132,	Chirkhwa Hydropower Limited,	CKHL,	Active,	Hydro Power,	G,	Equity
+133,	Nepal Warehousing Company Limited,	NWCL,	Active,	Others,	G,	Equity
+134,	Himalayan Reinsurance Limited,	HRL,	Active,	Others,	G,	Equity
+135,	Sarbottam Cement Limited,	SARBTM,	Active,	Manufacturing And Processing,	G,	Equity
+136,	Panchthar Power Company Ltd,	PPCL,	Active,	Hydro Power,	Z,	Equity
+137,	Ganapati Laghubitta Bittiya Sanstha Ltd,	GMFBS,	Active,	Microfinance,	Z,	Equity
+138,	Himalaya Urja Bikas Company Limited,	HURJA,	Active,	Hydro Power,	Z,	Equity
+139,	Gurans Laghubitta Bittiya Sanstha Ltd,	GLBSL,	Active,	Microfinance,	Z,	Equity
+140,	Greenlife Hydropower Limited,	GLH,	Active,	Hydro Power,	Z,	Equity
+141,	Mahila Laghubitta Bittiya Sanstha Ltd,	MLBSL,	Active,	Microfinance,	Z,	Equity
+142,	Singati Hydro Energy Ltd,	SHEL,	Active,	Hydro Power,	Z,	Equity
+143,	Ru Ru Jalbidhyut Pariyojana Limited,	RURU,	Active,	Hydro Power,	Z,	Equity
+144,	CEDB Hydropower Development Company Limited,	CHDC,	Active,	Investment,	Z,	Equity
+145,	Samaj Laghubitta Bittiya Sanstha Ltd,	SAMAJ,	Active,	Microfinance,	Z,	Equity
+146,	Sanima Reliance Life Insurance Limited,	SRLI,	Active,	Life Insurance,	Z,	Equity
+147,	Mailung Khola Jal Vidhyut Company Limited,	MKJC,	Active,	Hydro Power,	Z,	Equity
+148,	Manushi Laghubitta Bittiya Sanstha Limited,	MLBS,	Active,	Microfinance,	Z,	Equity
+149,	Sahas Urja Limited,	SAHAS,	Active,	Hydro Power,	Z,	Equity
+150,	Terhathum Power Company Limited,	TPC,	Active,	Hydro Power,	Z,	Equity
+151,	Samling power company limited,	SPC,	Active,	Hydro Power,	Z,	Equity
+152,	Nyadi hydropower limited,	NYADI,	Active,	Hydro Power,	Z,	Equity
+153,	Madhya Bhotekoshi Jalavidyut Company Limited,	MBJC,	Active,	Hydro Power,	Z,	Equity
+154,	Sampada Laghubitta Bittiya Sanstha Limited,	SMPDA,	Active,	Microfinance,	Z,	Equity
+155,	Nepal Investment Mega Bank Limited,	NIMB,	Active,	Commercial Banks,	Z,	Equity
+156,	Kumari Bank Limited,	KBL,	Active,	Commercial Banks,	Z,	Equity
+157,	Salt Trading Corporation,	STC,	Active,	Tradings,	Z,	Equity
+158,	Bishal Bazar Company Limited,	BBC,	Active,	Tradings,	Z,	Equity
+159,	Nirdhan Utthan Laghubitta Bittiya Sanstha Limited,	NUBL,	Active,	Microfinance,	Z,	Equity
+160,	Bottlers Nepal (Balaju) Limited,	BNL,	Active,	Manufacturing And Processing,	Z,	Equity
+161,	Nepal Lube Oil Limited,	NLO,	Active,	Manufacturing And Processing,	Z,	Equity
+162,	Gurkhas Finance Ltd.,	GUFL,	Active,	Finance,	Z,	Equity
+163,	Citizen Investment Trust,	CIT,	Active,	Investment,	Z,	Equity
+164,	Bottlers Nepal (Terai) Limited,	BNT,	Active,	Manufacturing And Processing,	Z,	Equity
+165,	Unilever Nepal Limited,	UNL,	Active,	Manufacturing And Processing,	Z,	Equity
+166,	Best Finance Company Ltd.,	BFC,	Active,	Finance,	Z,	Equity
+167,	Goodwill Finance Limited,	GFCL,	Active,	Finance,	Z,	Equity
+168,	Rastriya Beema Company Limited,	RBCL,	Active,	Non Life Insurance,	Z,	Equity
+169,	National Life Insurance Co. Ltd.,	NLICL,	Active,	Life Insurance,	Z,	Equity
+170,	Himalayan Everest Insurance Limited,	HEI,	Active,	Non Life Insurance,	Z,	Equity
+171,	United Ajod Insurance Limited,	UAIL,	Active,	Non Life Insurance,	Z,	Equity
+172,	Siddhartha Premier Insurance Limited,	SPIL,	Active,	Non Life Insurance,	Z,	Equity
+173,	Neco Insurance Limited,	NIL,	Active,	Non Life Insurance,	Z,	Equity
+174,	Prabhu Insurance Ltd.,	PRIN,	Active,	Non Life Insurance,	Z,	Equity
+175,	Sagarmatha Lumbini Insurance Co. Limited,	SALICO,	Active,	Non Life Insurance,	Z,	Equity
+176,	IGI Prudential Insurance Limited,	IGI,	Active,	Non Life Insurance,	Z,	Equity
+177,	Nepal Life Insurance Co. Ltd.,	NLIC,	Active,	Life Insurance,	Z,	Equity
+178,	Life Insurance Corporation (Nepal) Limited,	LICN,	Active,	Life Insurance,	Z,	Equity
+179,	Shikhar Insurance Co. Ltd.,	SICL,	Active,	Non Life Insurance,	Z,	Equity
+180,	Central Finance Co. Ltd.,	CFCL,	Active,	Finance,	Z,	Equity
+181,	Janaki Finance Company Limited,	JFL,	Active,	Finance,	Z,	Equity
+182,	Prabhu Bank Limited,	PRVU,	Active,	Commercial Banks,	Z,	Equity
+183,	Narayani Development Bank Limited,	NABBC,	Active,	Development Banks,	Z,	Equity
+184,	Deprosc Laghubitta Bittiya Sanstha Limited,	DDBL,	Active,	Microfinance,	Z,	Equity
+185,	Swabalamban Laghubitta Bittiya Sanstha Limited,	SWBBL,	Active,	Microfinance,	Z,	Equity
+186,	Excel Development Bank Ltd.,	EDBL,	Active,	Development Banks,	Z,	Equity
+187,	Progressive Finance Limited,	PROFL,	Active,	Finance,	Z,	Equity
+188,	SuryaJyoti Life Insurance Company Limited,	SJLIC,	Active,	Life Insurance,	Z,	Equity
+189,	Asian Life Insurance Co Limited,	ALICL,	Active,	Life Insurance,	Z,	Equity
+190,	Himalayan Life Insurance Limited,	HLI,	Active,	Life Insurance,	Z,	Equity
+191,	Nerude Mirmire Laghubitta Bittiya Sanstha Limited,	NMLBBL,	Active,	Microfinance,	Z,	Equity
+192,	Agricultural Development Bank Limited,	ADBL,	Active,	Commercial Banks,	Z,	Equity
+193,	Swarojgar Laghubitta Bittiya Sanstha Ltd.,	SLBBL,	Active,	Microfinance,	Z,	Equity
+194,	NLG Insurance Company Ltd.,	NLG,	Active,	Non Life Insurance,	Z,	Equity
+195,	Sindhu Bikash Bank Ltd,	SINDU,	Active,	Development Banks,	Z,	Equity
+196,	Karnali Development Bank Limited,	KRBL,	Active,	Development Banks,	Z,	Equity
+197,	Corporate Development Bank Limited,	CORBL,	Active,	Development Banks,	Z,	Equity
+198,	Multipurpose Finance Company Limited,	MPFL,	Active,	Finance,	Z,	Equity
+199,	Grameen Bikas Laghubitta Bittiya Sanstha Ltd.,	GBLBS,	Active,	Microfinance,	Z,	Equity
+200,	Reliance Finance Ltd.,	RLFL,	Active,	Finance,	Z,	Equity
+201,	Vijaya laghubitta Bittiya Sanstha Ltd.,	VLBS,	Active,	Microfinance,	Z,	Equity
+202,	Himalayan Laghubitta Bittiya Sanstha Limited,	HLBSL,	Active,	Microfinance,	Z,	Equity
+203,	Matribhumi Lagubitta Bittiya Sanstha Limited,	MATRI,	Active,	Microfinance,	Z,	Equity
+204,	Janautthan Samudayic Laghubitta Bittya Sanstha Limited,	JSLBB,	Active,	Microfinance,	Z,	Equity
+205,	Laxmi Laghubitta Bittiya Sanstha Ltd.,	LLBS,	Active,	Microfinance,	Z,	Equity
+206,	Kalika Laghubitta Bittiya Sanstha Ltd,	KMCDB,	Active,	Microfinance,	Z,	Equity
+207,	Mithila LaghuBitta Bittiya Sanstha Limited,	MLBBL,	Active,	Microfinance,	Z,	Equity
+208,	United Modi Hydropower Ltd.,	UMHL,	Active,	Hydro Power,	Z,	Equity
+209,	Samata Gharelu Laghubitta Bittiya Sanstha Limited,	SMATA,	Active,	Microfinance,	Z,	Equity
+210,	Chhyangdi Hydropower Ltd.,	CHL,	Active,	Hydro Power,	Z,	Equity
+211,	Himalayan Power Partner Ltd.,	HPPL,	Active,	Hydro Power,	Z,	Equity
+212,	Mahuli Laghubitta Bittiya Sanstha Limited,	MSLB,	Active,	Microfinance,	Z,	Equity
+213,	Nepal Hydro Developers Ltd,	NHDL,	Active,	Hydro Power,	Z,	Equity
+214,	Support Lagubitta Bittiya Sanstha Limited,	SMB,	Active,	Microfinance,	Z,	Equity
+215,	Unnati Sahakarya Laghubitta Bittiya Sanstha Limited,	USLB,	Active,	Microfinance,	Z,	Equity
+216,	Suryodaya Womi Laghubitta Bittiya Sanstha Limited,	SWMF,	Active,	Microfinance,	Z,	Equity
+217,	Mero Microfinance Bittiya Sanstha Ltd.,	MERO,	Active,	Microfinance,	Z,	Equity
+218,	NMB Microfinance Bittiya Sanstha Ltd.,	NMBMF,	Active,	Microfinance,	Z,	Equity
+219,	Green Development Bank Ltd.,	GRDBL,	Active,	Development Banks,	Z,	Equity
+220,	National Laghubitta Bittiya Sanstha Limited,	NMFBS,	Active,	Microfinance,	Z,	Equity
+221,	Joshi Hydropower Development Company Ltd,	JOSHI,	Active,	Hydro Power,	Z,	Equity
+222,	Aarambha Chautari Laghubitta Bittya Sanstha Limited,	ACLBSL,	Active,	Microfinance,	Z,	Equity
+223,	Upper Tamakoshi Hydropower Ltd,	UPPER,	Active,	Hydro Power,	Z,	Equity
+224,	Samudayik Laghubitta Bittiya Sanstha Limited,	SLBSL,	Active,	Microfinance,	Z,	Equity
+225,	Ghalemdi Hydro Limited,	GHL,	Active,	Hydro Power,	Z,	Equity
+226,	Asha Laghubitta Bittiya Sanstha Ltd.,	ALBSL,	Active,	Microfinance,	Z,	Equity
+227,	Wean Nepal Laghubitta Bittiya Sanstha Limited,	WNLB,	Active,	Microfinance,	Z,	Equity
+228,	Nadep Laghubittiya bittya Sanstha Ltd.,	NADEP,	Active,	Microfinance,	Z,	Equity
+229,	Panchakanya Mai Hydropower Ltd,	PMHPL,	Active,	Hydro Power,	Z,	Equity
+230,	Forward Microfinance Laghubitta Bittiya Sanstha Limited,	FOWAD,	Active,	Microfinance,	Z,	Equity
+231,	Khanikhola Hydropower Co. Ltd.,	KKHC,	Active,	Hydro Power,	Z,	Equity
+232,	Dibyashwori Hydropower Ltd.,	DHPL,	Active,	Hydro Power,	Z,	Equity
+233,	Liberty Energy Company Limited,	LEC,	Active,	Hydro Power,	Z,	Equity
+234,	Shiva Shree Hydropower Limited,	SSHL,	Active,	Hydro Power,	Z,	Equity
+235,	Sanima GIC Insurance Limited,	SGIC,	Active,	Non Life Insurance,	Z,	Equity
+236,	Mountain Energy Nepal Limited,	MEN,	Active,	Hydro Power,	Z,	Equity
+237,	United Idi Mardi & RB Hydropower Ltd,	UMRH,	Active,	Hydro Power,	Z,	Equity
+238,	Prabhu Mahalaxmi Life Insurance Limited,	PMLI,	Active,	Life Insurance,	Z,	Equity
+239,	Chandragiri Hills Limited,	CGH,	Active,	Hotels And Tourism,	Z,	Equity
+240,	Infinity Laghubitta Bittiya Sastha Ltd,	ILBS,	Active,	Microfinance,	Z,	Equity
+241,	Rasuwagadhi Hydropower Company Limited,	RHPL,	Active,	Hydro Power,	Z,	Equity
+242,	SANJEN JALAVIDHYUT COMPANY LTD,	SJCL,	Active,	Hydro Power,	Z,	Equity
+243,	Saptakoshi Development bank Ltd,	SAPDBL,	Active,	Development Banks,	Z,	Equity
+244,	Himal Dolakha Hydropower Com. Ltd.,	HDHPC,	Active,	Hydro Power,	Z,	Equity
+245,	Nepal Reinsurance Company Limited,	NRIC,	Active,	Others,	Z,	Equity
