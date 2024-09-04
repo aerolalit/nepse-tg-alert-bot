@@ -38,10 +38,12 @@ export class TgBotService implements OnModuleInit {
   ) {}
 
   public onModuleInit() {
+    
     const token = this.appConfigService.telegramBotConfig.token;
     this.bot = new TelegramBot(token, { polling: true });
 
     this.bot.setMyCommands(this.commands);
+  
 
     this.bot.on('message', async (msg: TelegramBot.Message) =>
       this.handleMessage(msg).catch((e) => this.logger.error(e)),
@@ -357,23 +359,27 @@ export class TgBotService implements OnModuleInit {
     text: string,
     deletionTimerMs: number = -1,
     buttons: TelegramBot.InlineKeyboardButton[][] = [],
-  ): Promise<TelegramBot.Message> {
+  ): Promise<TelegramBot.Message | void> {
     const options: TelegramBot.SendMessageOptions = {
       reply_markup: {
         inline_keyboard: buttons,
       },
     };
-
-    const res = await this.bot.sendMessage(chatId, text, options);
-    await this.deleteMessage(chatId, res.message_id, deletionTimerMs);
-    return res;
+    try {
+      
+      const res = await this.bot.sendMessage(chatId, text, options);
+      await this.deleteMessage(chatId, res.message_id, deletionTimerMs);
+     return res;
+    } catch (e) {
+      this.logger.error(e);
+    }
   }
 
   public async deleteMessage(chatId: number | string, messageId: number, timeoutMs: number = 0): Promise<void> {
     if (timeoutMs <= 0) {
       return;
     }
-    setTimeout(() => this.bot.deleteMessage(chatId, messageId), timeoutMs);
+    setTimeout(() => this.bot.deleteMessage(chatId, messageId).catch(e=>this.logger.error(e)), timeoutMs);
   }
 
   private getRange(n: number): number[] {

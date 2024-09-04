@@ -77,7 +77,7 @@ export class UserBotService {
 
       return result;
     } catch (error) {
-      this.logger.error('Error sending code:', error);
+      this.logger.error(error);
     }
   }
 
@@ -91,7 +91,7 @@ export class UserBotService {
 
       return result;
     } catch (error) {
-      this.logger.error('Error signing in:', error);
+      this.logger.error( error);
     }
   }
 
@@ -115,7 +115,7 @@ export class UserBotService {
       this.logger.log(`Sent message to ${username}: ${message}`);
       return result;
     } catch (error) {
-      this.logger.error('Error sending message:', error);
+      this.logger.error( error);
     }
   }
 
@@ -149,7 +149,7 @@ export class UserBotService {
 
       return result;
     } catch (error) {
-      console.error('Error getting message history:', error);
+      this.logger.error(error);
       return undefined;
     }
   }
@@ -173,7 +173,7 @@ export class UserBotService {
       const a = await this.mtproto.call('updates.getState');
       this.logger.log('Subscribed to new messages', a);
     } catch (error) {
-      this.logger.error('Error subscribing to new messages:', error);
+      this.logger.error( error);
     }
   }
 
