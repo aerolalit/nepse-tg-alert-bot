@@ -8,7 +8,7 @@ import { TickerSubscriptionService } from '../stocks/services/TickerSubscription
 
 @Injectable()
 export class QuaterlyPriceAlertService extends BasePriceAlertService {
-  private readonly logger = new Logger(QuaterlyPriceAlertService.name);
+  protected readonly logger = new Logger(QuaterlyPriceAlertService.name);
   protected isEnabled: boolean = true;
   protected readonly priceChangeThreshold = 3; // Percentage
 

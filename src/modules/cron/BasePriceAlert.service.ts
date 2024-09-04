@@ -1,5 +1,5 @@
 import { TickerPrice } from '../stocks/entities/TickerPrice.entity';
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { AlertLog } from '../notification-log/entities/AlertLog.entity';
 import { TgBotService } from '../tg-bot/TgBot.service';
 import { TickerPriceService } from '../stocks/services/TickerPrice.service';
@@ -9,6 +9,7 @@ import * as moment from 'moment-timezone';
 
 @Injectable()
 export abstract class BasePriceAlertService {
+  protected readonly logger = new Logger(BasePriceAlertService.name);
   protected abstract isEnabled: boolean;
   protected abstract readonly priceChangeThreshold: number;
   protected abstract readonly interval: number; // in milliseconds
@@ -44,7 +45,7 @@ export abstract class BasePriceAlertService {
         if (Math.abs(percentageChange) > this.priceChangeThreshold) {
           await this.notifySubscribers(ticker, currentPrice.ltp, percentageChange);
         } else {
-          console.log(
+          this.logger.debug(
             `Skipping notification for ${ticker} due to price change threshold ${percentageChange.toFixed(2)}%`,
           );
         }

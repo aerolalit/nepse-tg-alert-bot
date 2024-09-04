@@ -8,7 +8,7 @@ import { TickerPriceService } from '../stocks/services/TickerPrice.service';
 
 @Injectable()
 export class HourlyPriceAlertService extends BasePriceAlertService {
-  private readonly logger = new Logger(HourlyPriceAlertService.name);
+  protected readonly logger = new Logger(HourlyPriceAlertService.name);
   protected isEnabled: boolean = true;
   protected readonly priceChangeThreshold = 4; // Percentage
 

@@ -12,8 +12,7 @@ export class DailyReportCron {
     private readonly tickerSubscriptionService: TickerSubscriptionService,
     private readonly tickerPriceService: TickerPriceService,
     private readonly botService: TgBotService,
-  ) {
-  }
+  ) {}
 
   @Cron('20 11 * * 0-4') // Runs at 11:20 AM on Sunday, Monday, Tuesday, Wednesday, and Thursday
   public async handleCron() {

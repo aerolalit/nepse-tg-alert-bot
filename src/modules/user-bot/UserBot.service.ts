@@ -91,7 +91,7 @@ export class UserBotService {
 
       return result;
     } catch (error) {
-      this.logger.error( error);
+      this.logger.error(error);
     }
   }
 
@@ -115,7 +115,7 @@ export class UserBotService {
       this.logger.log(`Sent message to ${username}: ${message}`);
       return result;
     } catch (error) {
-      this.logger.error( error);
+      this.logger.error(error);
     }
   }
 
@@ -173,7 +173,7 @@ export class UserBotService {
       const a = await this.mtproto.call('updates.getState');
       this.logger.log('Subscribed to new messages', a);
     } catch (error) {
-      this.logger.error( error);
+      this.logger.error(error);
     }
   }
 
