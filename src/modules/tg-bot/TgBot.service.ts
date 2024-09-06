@@ -164,8 +164,12 @@ export class TgBotService implements OnModuleInit {
       tableMessage += row.map((cell) => cell.padEnd(6)).join(' ') + '\n';
     });
     tableMessage += '```';
-
+    try {
     await this.bot.sendMessage(chatId, tableMessage, { parse_mode: 'Markdown' });
+      
+    } catch (e) {
+      this.logger.error(e);
+    }
   }
 
   private async handleCallbackQuery(callbackQuery: TelegramBot.CallbackQuery) {

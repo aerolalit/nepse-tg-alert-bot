@@ -27,6 +27,8 @@ export class DailyReportCron {
 
     for (const chatId of chatIds) {
       const subscriptions = await this.tickerSubscriptionService.listSubscriptionsByChatId(chatId);
+      subscriptions.sort((a, b) => a.ticker.localeCompare(b.ticker));
+
       const tableData: string[][] = [['Ticker', 'Open', 'Close', '%Change']];
 
       await Promise.all(

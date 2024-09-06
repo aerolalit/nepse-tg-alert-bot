@@ -34,7 +34,6 @@ export class TickerSubscriptionService {
       .createQueryBuilder('subscription')
       .select('DISTINCT subscription."chatId"')
       .getRawMany();
-    console.log(subscriptions);
     return subscriptions.map((sub) => sub.chatId);
   }
 
