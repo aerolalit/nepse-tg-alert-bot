@@ -146,6 +146,7 @@ export class TgBotService implements OnModuleInit {
       [{ text: 'Unsubscribe', callback_data: 'unsubscribeAlert' }],
       [{ text: 'List all Subscription', callback_data: 'listSubscriptions' }],
       [{ text: 'Feedback / Feature Request', callback_data: 'feedbackAndRequest' }],
+      [{text: 'Share', switch_inline_query: 'Try this bot to get live alerts on stock prices changes!'}],
     ];
   }
 
