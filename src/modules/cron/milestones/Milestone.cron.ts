@@ -16,7 +16,7 @@ export class MilestoneCron {
     private readonly botService: TgBotService,
   ) {}
 
-  @Cron('* 7-12 * * 0-4') // Sunday to Thursday, 7am to 12pm every 1 minute
+  @Cron('* 7-11 * * 0-4') // Sunday to Thursday, 7am to 12pm every 1 minute
   public async handleCron() {
     const tickers = await this.tickerPriceService.getAllTickers();
 
@@ -28,7 +28,7 @@ export class MilestoneCron {
       const tickerPrice = await this.tickerPriceService.getLatestTickerPrice(ticker);
 
       const diff = Math.abs(tickerPrice.createdAt.getTime() - lastMilestoneAlert.createdAt.getTime());
-      const COOLDOWN_TIME_MS = 15 * 60 * 1000; // 7 minutes
+      const COOLDOWN_TIME_MS = 30 * 60 * 1000; // 7 minutes
 
       const isUnderCooldown = diff < COOLDOWN_TIME_MS;
 
@@ -38,7 +38,7 @@ export class MilestoneCron {
       const milestoneAlert: MilestoneAlert = new MilestoneAlert({ ticker });
 
       if (lastMilestoneAlert.direction === 'UP') {
-        if (nearestMilestones.lower > lastMilestoneAlert.milestone) {
+        if (nearestMilestones.lower > lastMilestoneAlert.milestone && currentPrice > nearestMilestones.lower) {
           milestoneAlert.milestone = nearestMilestones.lower;
           milestoneAlert.direction = 'UP';
         } else if (currentPrice < lastMilestoneAlert.milestone) {
@@ -50,7 +50,7 @@ export class MilestoneCron {
           }
         }
       } else {
-        if (nearestMilestones.upper < lastMilestoneAlert.milestone) {
+        if (nearestMilestones.upper < lastMilestoneAlert.milestone && currentPrice < nearestMilestones.upper) {
           milestoneAlert.milestone = nearestMilestones.upper;
           milestoneAlert.direction = 'DOWN';
         } else if (currentPrice > lastMilestoneAlert.milestone) {
@@ -119,7 +119,7 @@ export class MilestoneCron {
     const subscribers = await this.subscriptionService.getSubscriptionsByTicker(milestone.ticker);
     const message =
       (milestone.direction === 'UP' ? '🟢' : '🔴') +
-      `${milestone.ticker} trading ${milestone.direction === 'UP' ? 'above' : 'below'} ${
+      `${milestone.ticker} ${milestone.direction === 'UP' ? 'rises above' : 'falls through'} ${
         milestone.milestone
       } (ltp: ${currentPrice})`;
     for (const subscriber of subscribers) {

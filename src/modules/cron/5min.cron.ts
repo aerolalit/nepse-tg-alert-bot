@@ -26,7 +26,7 @@ export class QuaterlyPriceAlertService extends BasePriceAlertService {
     super(tickerPriceService, tickerSubscriptionService, alertLogService, botService);
   }
 
-  @Cron('* 7-12 * * 0-4') // Sunday to Thursday, 7am to 12pm every 1 minute
+  @Cron('* 8-11 * * 0-4') // Sunday to Thursday, 7am to 12pm every 1 minute
   public async handleCron() {
     await super.handleCron();
   }
