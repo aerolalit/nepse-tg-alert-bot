@@ -1958,5 +1958,13 @@
     "sector": "Others",
     "group": "Z",
     "type": "Equity"
+  },
+  {
+    "name": "Hydroelectricity Investment and Development Company Limited",
+    "ticker": "HIDCLP",
+    "status": "Active",
+    "sector": "Investment",
+    "group": "X",
+    "type": "Investment"
   }
 ]
